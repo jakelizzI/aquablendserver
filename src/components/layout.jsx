@@ -1,5 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { Container } from 'semantic-ui-react';
+import { Divider } from 'semantic-ui-react';
 
 import Header from './header';
 import Footer from './footer';
@@ -11,11 +13,12 @@ export default (props) => {
       <Helmet>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css" />
       </Helmet>
-      <Header />
-      <div id="contents">
+      <Container>
+        <Header />
+        <Divider />
         {children}
-      </div>
-      <Footer />
+        <Footer />
+      </Container>
     </div>
   );
 }
