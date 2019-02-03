@@ -1,11 +1,12 @@
 import { navigate, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import React from 'react';
 import { Menu } from 'semantic-ui-react';
 
-export default ( {data} ) => (
+import Logo from './Logo';
+
+export default () => (
   <div>
-    <Img fixed={ data.file.childImageSharp.fixed } />
+    <Logo />
     <Menu widths={4}>
       <Menu.Item
         link
@@ -45,10 +46,10 @@ export default ( {data} ) => (
 
 export const query = graphql`
   query {
-    file(relativePath: { eq: "logo-sample.png" }) {
+    placeholderImage: file(relativePath: { eq: "logo-sample.png" }) {
       childImageSharp {
-        fixed(width: 125, height: 125) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
