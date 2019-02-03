@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Container } from 'semantic-ui-react';
-import { Divider } from 'semantic-ui-react';
 
 import Header from './header';
 import Footer from './footer';
@@ -15,10 +14,9 @@ export default (props) => {
       </Helmet>
       <Container>
         <Header />
-        <Divider />
         {children}
         <Footer />
       </Container>
     </div>
   );
-}
+};
