@@ -17,6 +17,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-helmet": "^5.2.0",
+    "react-slick": "^0.23.2",
     "semantic-ui-react": "^0.84.0"
   },
   "keywords": [
@@ -46,9 +47,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/jakelizzI/aquablendserver"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/jakelizzI/aquablendserver/issues"
   }
 }

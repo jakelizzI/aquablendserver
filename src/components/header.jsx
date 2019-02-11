@@ -1,4 +1,4 @@
-import { navigate, graphql } from 'gatsby';
+import { navigate } from 'gatsby';
 import React from 'react';
 import { Menu } from 'semantic-ui-react';
 
@@ -43,15 +43,3 @@ export default () => (
     </Menu>
   </div>
 );
-
-export const query = graphql`
-  query {
-    placeholderImage: file(relativePath: { eq: "logo-sample.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 300) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
