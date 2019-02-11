@@ -4,6 +4,7 @@ import { Button } from 'semantic-ui-react';
 
 import Layout from '../components/Layout';
 import Carousel from '../components/Carousel';
+import Topics from '../components/Topics';
 
 export default () => (
   <Layout>
@@ -13,5 +14,6 @@ export default () => (
     <Link to="/news">
       <Button secondary>news</Button>
     </Link>
+    <Topics />
   </Layout>
 );
