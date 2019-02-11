@@ -16,6 +16,7 @@ const query = graphql`
     placeholderImage: allFile(filter : {relativeDirectory : {eq : "slider"}}, sort: {fields: name, order: DESC}) {
       edges {
         node {
+          id
           name
           childImageSharp {
             fluid {
@@ -34,7 +35,7 @@ export default () => (
     render={data => (
       <Slider {...settings}>
         {data.placeholderImage.edges.map(element => (
-          <Link to={element.node.name}>
+          <Link to={element.node.name} key={element.node.id}>
             <Img fluid={element.node.childImageSharp.fluid} />
           </Link>
         ))}
