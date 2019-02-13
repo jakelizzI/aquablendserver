@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Divider, Grid, Header } from 'semantic-ui-react';
 
-import Layout from '../components/Layout';
+import Layout from '../components/layout';
 
 export default ({ data }) => (
   <Layout>

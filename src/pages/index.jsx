@@ -2,10 +2,10 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Segment } from 'semantic-ui-react';
 
-import Layout from '../components/Layout';
-import Carousel from '../components/Carousel';
-import Topics from '../components/Topics';
-import MyList from '../components/MyList';
+import Layout from '../components/layout';
+import Carousel from '../components/carousel';
+import Topics from '../components/topics';
+import MyList from '../components/myList';
 
 export default ({ data }) => (
   <Layout>

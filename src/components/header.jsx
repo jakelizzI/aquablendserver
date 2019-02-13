@@ -2,7 +2,7 @@ import { navigate } from 'gatsby';
 import React from 'react';
 import { Menu } from 'semantic-ui-react';
 
-import Logo from './Logo';
+import Logo from './logo';
 
 export default () => (
   <div>

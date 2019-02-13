@@ -2,8 +2,8 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Container } from 'semantic-ui-react';
 
-import Header from './Header';
-import Footer from './Footer';
+import Header from './header';
+import Footer from './footer';
 
 export default (props) => {
   const { children } = props;
