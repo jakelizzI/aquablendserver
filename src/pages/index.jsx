@@ -5,6 +5,7 @@ import { Segment } from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import Carousel from '../components/Carousel';
 import Topics from '../components/Topics';
+import MyList from '../components/MyList';
 
 export default ({ data }) => (
   <Layout>
@@ -13,6 +14,9 @@ export default ({ data }) => (
     </Segment>
     <Segment basic>
       <Topics allMarkdownRemark={data.allMarkdownRemark} />
+    </Segment>
+    <Segment basic>
+      <MyList />
     </Segment>
   </Layout>
 );
@@ -28,7 +32,7 @@ export const query = graphql`
             date
             type
           }
-          html
+          rawMarkdownBody
         }
       }
     }

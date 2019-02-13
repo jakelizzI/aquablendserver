@@ -15,7 +15,12 @@ export default ({ allMarkdownRemark }) => (
         {allMarkdownRemark.edges[0].node.frontmatter.type}
       </Grid.Column>
       <Grid.Column width="7">
-        {allMarkdownRemark.edges[0].node.html}
+        {allMarkdownRemark.edges[0].node.rawMarkdownBody.split('\n').map(row => (
+          <p>
+            {row}
+            <br />
+          </p>
+        ))}
       </Grid.Column>
     </Grid.Row>
   </Grid>
