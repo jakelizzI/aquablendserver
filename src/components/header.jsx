@@ -11,7 +11,7 @@ export default () => (
       <Menu.Item
         link
         onClick={
-          () => navigate('/news')
+          () => navigate('news')
         }
       >
           news
@@ -19,7 +19,7 @@ export default () => (
       <Menu.Item
         link
         onClick={
-          () => navigate('/blog')
+          () => navigate('blog')
         }
       >
         blog
@@ -27,7 +27,7 @@ export default () => (
       <Menu.Item
         link
         onClick={
-          () => navigate('/discography')
+          () => navigate('discography')
         }
       >
         discography
@@ -35,7 +35,7 @@ export default () => (
       <Menu.Item
         link
         onClick={
-          () => navigate('/contact')
+          () => navigate('contact')
         }
       >
         contact

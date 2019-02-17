@@ -35,6 +35,12 @@ module.exports = {
         icon: `src/images/logos/favicon/favicon.png`,
       },
     },
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: 'aquablendserver'
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
