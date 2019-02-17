@@ -5,6 +5,6 @@ const year = new Date().getFullYear();
 
 export default () => (
   <Segment textAlign="center" secondary>
-    copyright (c) {year}  "Aqua Blend Server"  all rights reserved.
+    {`copyright (c) ${year}  &quot;Aqua Blend Server&quot;  all rights reserved.`}
   </Segment>
 );
