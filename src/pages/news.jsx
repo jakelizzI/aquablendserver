@@ -1,16 +1,17 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Divider, Grid, Header } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 import Layout from '../components/layout';
 
-export default ({ data }) => (
+const News = ({ data }) => (
   <Layout>
     <Divider />
     <Grid divided centered>
       <Grid.Row>
         <Grid.Column width="10">
-          <Header as="h1">Aqua Blend Server's News</Header>
+          <Header as="h1">Aqua Blend Server&#39;s News</Header>
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
@@ -31,6 +32,11 @@ export default ({ data }) => (
     </Grid>
   </Layout>
 );
+
+News.propTypes = {
+  data: PropTypes.isRequired,
+};
+
 export const query = graphql`
   query {
     allMarkdownRemark(sort: {fields: frontmatter___date}) {
@@ -47,3 +53,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default News;

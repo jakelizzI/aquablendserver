@@ -16,7 +16,6 @@
     "gatsby-plugin-s3": "^0.2.4",
     "gatsby-plugin-sass": "^2.0.10",
     "gatsby-plugin-sharp": "^2.0.14",
-    "gatsby-plugin-typescript": "^2.0.8",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-remark": "^2.2.4",
     "gatsby-transformer-sharp": "^2.1.8",
@@ -44,11 +43,7 @@
     "babel-eslint": "^10.0.1",
     "eslint-config-airbnb": "^17.1.0",
     "gatsby-plugin-asset-path": "^0.2.1",
-    "sass": "^1.17.0",
-    "tslint": "^5.12.1",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^3.6.0",
-    "typescript": "^3.3.3"
+    "sass": "^1.17.0"
   },
   "repository": {
     "type": "git",

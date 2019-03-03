@@ -1,13 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Segment } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 import Layout from '../components/layout';
 import Carousel from '../components/carousel';
 import Topics from '../components/topics';
 import MyList from '../components/myList';
 
-export default ({ data }) => (
+const Index = ({ data }) => (
   <Layout>
     <Segment basic>
       <Carousel placeholderImage={data.placeholderImage} />
@@ -21,6 +22,9 @@ export default ({ data }) => (
   </Layout>
 );
 
+Index.propTypes = {
+  data: PropTypes.isRequired,
+};
 
 export const query = graphql`
   query {
@@ -51,3 +55,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default Index;

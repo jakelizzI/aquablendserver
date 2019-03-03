@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
+import PropTypes from 'prop-types';
 
 import '../styles/sass/carousel.scss';
 
@@ -17,7 +18,7 @@ const settings = {
   slidesToScroll: 1,
 };
 
-const Carousel: React.SFC = ({ placeholderImage }) => (
+const Carousel = ({ placeholderImage }) => (
   <Slider {...settings}>
     {placeholderImage.edges.map((element, index) => (
       <Link to={element.node.name} key={index.toString()}>
@@ -26,5 +27,9 @@ const Carousel: React.SFC = ({ placeholderImage }) => (
     ))}
   </Slider>
 );
+
+Carousel.propTypes = {
+  placeholderImage: PropTypes.isRequired,
+};
 
 export default Carousel;

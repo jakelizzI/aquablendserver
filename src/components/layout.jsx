@@ -1,11 +1,12 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Container } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 import Header from './header';
 import Footer from './footer';
 
-export default (props) => {
+const Layout = (props) => {
   const { children } = props;
   return (
     <div>
@@ -22,3 +23,9 @@ export default (props) => {
     </div>
   );
 };
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default Layout;

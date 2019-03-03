@@ -1,7 +1,8 @@
 import React from 'react';
 import { Grid, Header } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
-export default ({ allMarkdownRemark }) => (
+const Topics = ({ allMarkdownRemark }) => (
   <Grid divided centered>
     <Grid.Row>
       <Grid.Column width="10">
@@ -25,3 +26,9 @@ export default ({ allMarkdownRemark }) => (
     </Grid.Row>
   </Grid>
 );
+
+Topics.propTypes = {
+  allMarkdownRemark: PropTypes.isRequired,
+};
+
+export default Topics;
