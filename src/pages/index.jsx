@@ -28,7 +28,7 @@ Index.propTypes = {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: {fields: frontmatter___date}) {
+    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, limit: 1) {
       edges {
         node {
           frontmatter {
@@ -36,7 +36,7 @@ export const query = graphql`
             date
             type
           }
-          rawMarkdownBody
+          html
         }
       }
     }

@@ -16,12 +16,7 @@ const Topics = ({ allMarkdownRemark }) => (
         {allMarkdownRemark.edges[0].node.frontmatter.type}
       </Grid.Column>
       <Grid.Column width="7">
-        {allMarkdownRemark.edges[0].node.rawMarkdownBody.split('\n').map((row, index) => (
-          <p key={index.toString()}>
-            {row}
-            <br />
-          </p>
-        ))}
+        <div dangerouslySetInnerHTML={{ __html: allMarkdownRemark.edges[0].node.html }} />
       </Grid.Column>
     </Grid.Row>
   </Grid>

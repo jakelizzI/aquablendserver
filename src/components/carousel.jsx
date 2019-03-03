@@ -21,7 +21,7 @@ const settings = {
 const Carousel = ({ placeholderImage }) => (
   <Slider {...settings}>
     {placeholderImage.edges.map((element, index) => (
-      <Link to={element.node.name} key={index.toString()}>
+      <Link to={`/tokusetsu/${element.node.name}`} key={index.toString()}>
         <Img fluid={element.node.childImageSharp.fluid} />
       </Link>
     ))}

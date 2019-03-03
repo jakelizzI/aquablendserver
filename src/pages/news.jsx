@@ -14,21 +14,18 @@ const News = ({ data }) => (
           <Header as="h1">Aqua Blend Server&#39;s News</Header>
         </Grid.Column>
       </Grid.Row>
-      <Grid.Row>
-        <Grid.Column width="3" textAlign="right">
-          {data.allMarkdownRemark.edges[0].node.frontmatter.date}
-          <br />
-          {data.allMarkdownRemark.edges[0].node.frontmatter.type}
-        </Grid.Column>
-        <Grid.Column width="7">
-          {data.allMarkdownRemark.edges[0].node.rawMarkdownBody.split('\n').map(row => (
-            <p>
-              {row}
-              <br />
-            </p>
-          ))}
-        </Grid.Column>
-      </Grid.Row>
+      {data.allMarkdownRemark.edges.map(edge => (
+        <Grid.Row>
+          <Grid.Column width="3" textAlign="right">
+            {edge.node.frontmatter.date}
+            <br />
+            {edge.node.frontmatter.type}
+          </Grid.Column>
+          <Grid.Column width="7">
+            <div dangerouslySetInnerHTML={{ __html: edge.node.html }} />
+          </Grid.Column>
+        </Grid.Row>
+      ))}
     </Grid>
   </Layout>
 );
@@ -39,7 +36,7 @@ News.propTypes = {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: {fields: frontmatter___date}) {
+    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
           frontmatter {
@@ -47,7 +44,7 @@ export const query = graphql`
             date
             type
           }
-          rawMarkdownBody
+          html
         }
       }
     }
