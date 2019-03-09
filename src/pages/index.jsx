@@ -17,7 +17,7 @@ const Index = ({ data }) => (
       <Topics allMarkdownRemark={data.allMarkdownRemark} />
     </Segment>
     <Segment basic>
-      <MyList />
+      <MyList placeholderImage={data.placeholderImage} />
     </Segment>
   </Layout>
 );
@@ -40,14 +40,18 @@ export const query = graphql`
         }
       }
     }
-    placeholderImage: allFile(filter : {relativeDirectory : {eq : "slider"}}, sort: {fields: name, order: DESC}) {
+    placeholderImage: allFile(filter : {relativeDirectory : {in : ["icons","slider"]}}, sort: {fields: name, order: DESC}) {
       edges {
         node {
+          relativeDirectory
           id
           name
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
+            }
+            fixed {
+              ...GatsbyImageSharpFixed
             }
           }
         }
