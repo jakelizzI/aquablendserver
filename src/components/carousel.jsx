@@ -20,17 +20,11 @@ const settings = {
 
 const Carousel = ({ placeholderImage }) => (
   <Slider {...settings}>
-    {placeholderImage.edges.map((element, index) => {
-      if (element.node.relativeDirectory === 'icons') {
-        return null;
-      }
-      return (
-        <Link to={`/tokusetsu/${element.node.name}`} key={index.toString()}>
-          <Img fluid={element.node.childImageSharp.fluid} />
-        </Link>
-      );
-    })
-    }
+    {placeholderImage.edges.map((element, index) => (
+      <Link to={`/tokusetsu/${element.node.name.slice(3)}`} key={index.toString()}>
+        <Img fluid={element.node.childImageSharp.fluid} />
+      </Link>
+    ))}
   </Slider>
 );
 

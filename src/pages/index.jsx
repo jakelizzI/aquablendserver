@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 
 import Layout from '../components/layout';
 import Carousel from '../components/carousel';
@@ -10,6 +11,10 @@ import MyList from '../components/myList';
 
 const Index = ({ data }) => (
   <Layout>
+    <Helmet>
+      <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+    </Helmet>
     <Segment basic>
       <Carousel placeholderImage={data.placeholderImage} />
     </Segment>
@@ -17,7 +22,7 @@ const Index = ({ data }) => (
       <Topics allMarkdownRemark={data.allMarkdownRemark} />
     </Segment>
     <Segment basic>
-      <MyList placeholderImage={data.placeholderImage} />
+      <MyList />
     </Segment>
   </Layout>
 );
@@ -40,7 +45,7 @@ export const query = graphql`
         }
       }
     }
-    placeholderImage: allFile(filter : {relativeDirectory : {in : ["icons","slider"]}}, sort: {fields: name, order: DESC}) {
+    placeholderImage: allFile(filter : {relativeDirectory : {eq : "slider"}}, sort: {fields: name, order: DESC}) {
       edges {
         node {
           relativeDirectory
@@ -49,9 +54,6 @@ export const query = graphql`
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
-            }
-            fixed {
-              ...GatsbyImageSharpFixed
             }
           }
         }

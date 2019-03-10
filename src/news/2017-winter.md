@@ -7,7 +7,7 @@ Aqua Blend Serverによる東方アレンジアルバム第5弾！
 コミックマーケット93にて頒布開始です。  
 メロンブックスへの書店委託も行います。  
   
-新譜の詳細情報は[こちら](/tokusetsu/06_ENET)  
+新譜の詳細情報は[こちら](/tokusetsu/ENET)  
   
 委託の詳細情報は<a href="https://www.melonbooks.co.jp/detail/detail.php?product_id=320333" target="_blank">こちら</a>  
   

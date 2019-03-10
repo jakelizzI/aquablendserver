@@ -41,20 +41,11 @@ module.exports = {
         bucketName: 'aquablendserver'
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-asset-path`,
-    //   options: {
-    //     removeMapFiles: true
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-sass`,
       options: {
         implementation: require("sass"),
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
   ],
 };
