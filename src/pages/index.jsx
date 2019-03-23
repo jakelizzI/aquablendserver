@@ -8,6 +8,7 @@ import Layout from '../components/layout';
 import Carousel from '../components/carousel';
 import Topics from '../components/topics';
 import MyList from '../components/myList';
+import Biography from '../components/biography';
 
 const Index = ({ data }) => (
   <Layout>
@@ -23,6 +24,9 @@ const Index = ({ data }) => (
     </Segment>
     <Segment basic>
       <MyList />
+    </Segment>
+    <Segment basic>
+      <Biography />
     </Segment>
   </Layout>
 );
