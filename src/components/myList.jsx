@@ -11,7 +11,7 @@ const MyList = () => (
       </Grid.Column>
     </Grid.Row>
     <Grid.Row columns={2}>
-      <Grid.Column computer={5} tablet={16}>
+      <Grid.Column computer={5} tablet={16} verticalAlign="middle">
         <a
           href="https://www.nicovideo.jp/mylist/54270948"
           target="brank"
@@ -23,7 +23,7 @@ const MyList = () => (
           ニコニコ動画
         </a>
       </Grid.Column>
-      <Grid.Column computer={5} tablet={16}>
+      <Grid.Column computer={5} tablet={16} verticalAlign="middle">
         <a
           href="https://www.youtube.com/channel/UCySTj7H39uXSJhz5EKxdu4g/featured"
           target="brank"

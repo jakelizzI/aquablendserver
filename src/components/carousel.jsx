@@ -1,6 +1,5 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 
@@ -21,9 +20,9 @@ const settings = {
 const Carousel = ({ placeholderImage }) => (
   <Slider {...settings}>
     {placeholderImage.edges.map((element, index) => (
-      <Link to={`/tokusetsu/${element.node.name.slice(3)}`} key={index.toString()}>
+      <a target="_blank" rel="noopener noreferrer" href={`/tokusetsu/${element.node.name.slice(3)}`} key={index.toString()}>
         <Img fluid={element.node.childImageSharp.fluid} />
-      </Link>
+      </a>
     ))}
   </Slider>
 );
