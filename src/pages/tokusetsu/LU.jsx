@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Segment } from 'semantic-ui-react';
+import { List, Segment, Embed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
@@ -15,8 +15,8 @@ const meta = {
     jacket: 'lu-jacket',
   },
   embed: {
-    id: 'dAfsIPWKDK8',
-    placeholder: 'http://img.youtube.com/vi/dAfsIPWKDK8/mqdefault.jpg',
+    id: '3vBpIaNOFfQ',
+    placeholder: 'http://img.youtube.com/vi/3vBpIaNOFfQ/mqdefault.jpg',
     source: 'youtube',
   },
 };
@@ -28,14 +28,17 @@ const details = [
     headSize: '1',
     list: [
       {
+        key: '1',
         head: '01.',
         body: '有識と無意識のフェリチタ (ハルトマンの妖怪少女)',
       },
       {
+        key: '2',
         head: '02.',
         body: 'アイストルマリン (おてんば恋娘)',
       },
       {
+        key: '3',
         head: '03.',
         body: 'かえりみち (U.N.オーエンは彼女なのか？)',
       },
@@ -46,14 +49,17 @@ const details = [
     headSize: '3',
     list: [
       {
+        key: '1',
         head: 'たしろう',
         body: 'Bass[2-3],Arrange[1-3],Lyrics[1,3],mixing[1-3]',
       },
       {
+        key: '2',
         head: 'm@ko',
         body: 'Piano[1-3]',
       },
       {
+        key: '3',
         head: 'な↑なし',
         body: 'Guitar[2]',
       },
@@ -64,34 +70,47 @@ const details = [
     headSize: '3',
     list: [
       {
+        key: '1',
         head: 'lamie*(Aliesrite*)',
         body: 'Vocal[1,3]',
       },
       {
+        key: '2',
         head: 'しぇぱ',
         body: 'Violin[1,3]',
       },
       {
+        key: '3',
         head: '　',
         body: '　',
       },
       {
+        key: '4',
         head: '雪',
         body: 'Design&Illustration',
       },
       {
+        key: '5',
         head: 'Studio Cinnamon',
         body: 'Mastering[1-3]',
       },
     ],
   },
 ];
+const embed = (
+  <Embed
+    id={meta.embed.id}
+    placeholder={meta.embed.placeholder}
+    source={meta.embed.source}
+  />
+);
 
 const LU = ({ data }) => (
   <TokusetsuLayout
-    data={data}
+    jacketImg={data.imageSharp.resize.src}
     details={details}
     meta={meta}
+    embed={embed}
     secondary
   >
     <Segment vertical size="large">
@@ -115,7 +134,7 @@ const LU = ({ data }) => (
 );
 
 LU.propTypes = {
-  data: PropTypes.string.isRequired,
+  data: PropTypes.shape().isRequired,
 };
 
 export const query = graphql`

@@ -5,18 +5,18 @@ import { graphql } from 'gatsby';
 
 import TokusetsuLayout from '../../components/tokusetsuLayout';
 
-import '../../styles/sass/ur.scss';
+import '../../styles/sass/cc.scss';
 
 // embedの情報やclassNameなどの情報
 const meta = {
   className: {
-    div: 'ur-base',
-    container: 'ur-contents',
-    jacket: 'ur-jacket',
+    div: 'cc-base',
+    container: 'cc-contents',
+    jacket: 'cc-jacket',
   },
   embed: {
-    id: 'dAfsIPWKDK8',
-    placeholder: 'http://img.youtube.com/vi/dAfsIPWKDK8/mqdefault.jpg',
+    id: '3vBpIaNOFfQ',
+    placeholder: 'http://img.youtube.com/vi/3vBpIaNOFfQ/mqdefault.jpg',
     source: 'youtube',
   },
 };
@@ -30,32 +30,27 @@ const details = [
       {
         key: '1',
         head: '01.',
-        body: 'Third Time\'s The Charm(少女さとり　～ 3rd eye)',
+        body: 'You Lose An Alarm Clock. (小さな小さな賢将)',
       },
       {
         key: '2',
         head: '02.',
-        body: 'Cheer Together(死体旅行　～ Be of good cheer!)',
+        body: 'Flowering Oversleeping (フラワリングナイト)',
       },
       {
         key: '3',
         head: '03.',
-        body: '華かく散りぬれど(華のさかづき大江山)',
+        body: 'Feel like bein\' with you. (砕月)',
       },
       {
         key: '4',
         head: '04.',
-        body: 'Daker Than Green(緑眼のジェラシー)',
+        body: '1884 (明治十七年の上海アリス)',
       },
       {
         key: '5',
         head: '05.',
-        body: 'One By Two(旧地獄街道を行く)',
-      },
-      {
-        key: '6',
-        head: '06.',
-        body: 'Dear E.W.V.(ラストリモート)',
+        body: 'Do I Have To Believe In Spring? (幽雅に咲かせ、墨染の桜　～ Border of Life)',
       },
     ],
   },
@@ -65,13 +60,13 @@ const details = [
     list: [
       {
         key: '1',
-        head: '宮森たしろう',
-        body: '(Bass[1-2,4-6], Arrange[2,4,6] , Design)',
+        head: 'たしろう',
+        body: 'Bass[1-5],Arrange[1,2,5]',
       },
       {
         key: '2',
         head: 'm@ko',
-        body: '(Piano[1-3,5-6],Arrange[1,3,5])',
+        body: 'Piano[3-5],Arrange[3,4],Lyric[3]',
       },
     ],
   },
@@ -82,22 +77,22 @@ const details = [
       {
         key: '1',
         head: 'jakelizzi',
-        body: '(Drums[3-4,6])',
+        body: 'Drums[2-5]',
       },
       {
         key: '2',
         head: 'H.O.',
-        body: '(Alto sax[4,6])',
+        body: 'Alto sax[1,2,4]',
       },
       {
         key: '3',
-        head: '　',
-        body: '　',
+        head: 'はな',
+        body: 'Vocal[3]',
       },
       {
         key: '4',
-        head: '息吹のつ',
-        body: '(Illustration)<HP: https://www.pixiv.net/member.php?id=7013 >',
+        head: 'な↑なし',
+        body: 'Guitar[3]',
       },
       {
         key: '5',
@@ -106,13 +101,22 @@ const details = [
       },
       {
         key: '6',
-        head: 'StudioTLive\n(田島克洋)',
-        body: '(Recording[1-6])',
+        head: '東天紅',
+        body: 'Design&Illustration',
+      },
+      {
+        key: '7',
+        head: '世田谷RECスタジオ',
+        body: 'Recording[1-5],mixing[1-5]',
+      },
+      {
+        key: '8',
+        head: 'Studio Cinnamon',
+        body: 'Mastering[1-5]',
       },
     ],
   },
 ];
-
 const embed = (
   <Embed
     id={meta.embed.id}
@@ -121,44 +125,40 @@ const embed = (
   />
 );
 
-const UR = ({ data }) => (
+const LU = ({ data }) => (
   <TokusetsuLayout
     jacketImg={data.imageSharp.resize.src}
     details={details}
     meta={meta}
     embed={embed}
-    inverted
+    secondary
   >
     <Segment vertical size="large">
       <p>
-        Unconscious Room 明りも美しい。蔭も美しい。
+        Crystal Complex
       </p>
       <p>
-        Aqua Blend Server による 東方アレンジアルバム第6弾!
-      </p>
-      <p>
-        ピアノとベースのデュオを中心に少人数編成でアレンジしました。
-      </p>
-      <p>
-        生演奏・一発録りです！！
+        Aqua Blend Serverによる東方アレンジアルバム第4弾！
       </p>
       <List>
         <List.Header>頒布情報</List.Header>
-        <List.Item>頒布日　　　2018.12.30(コミックマーケット95)</List.Item>
-        <List.Item>頒布場所　　ロ-02b [Aqua Blend Server]</List.Item>
-        <List.Item>頒布価格　　800円</List.Item>
+        <List.Item>頒布日１　　2017.10.15(秋季例大祭)</List.Item>
+        <List.Item>頒布場所１　い-33a [Aqua Blend Server]</List.Item>
+        <List.Item>頒布日２　　2017.10.22(東方紅楼夢)</List.Item>
+        <List.Item>頒布場所２　Ｌ-11b [Aqua Blend Server]</List.Item>
+        <List.Item>頒布価格　　500円</List.Item>
       </List>
     </Segment>
   </TokusetsuLayout>
 );
 
-UR.propTypes = {
+LU.propTypes = {
   data: PropTypes.shape().isRequired,
 };
 
 export const query = graphql`
   query {
-    imageSharp: imageSharp(resolutions: {originalName: {eq: "Unconscious_Room_jacket_mini.jpg"}}) {
+    imageSharp: imageSharp(resolutions: {originalName: {eq: "cc_jacket_mini.jpg"}}) {
       resize(width: 600, height: 600) {
         src
       }
@@ -166,4 +166,4 @@ export const query = graphql`
   }
 `;
 
-export default UR;
+export default LU;

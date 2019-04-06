@@ -7,14 +7,14 @@ import styled from 'styled-components';
 
 import TokusetsuLayout from '../../components/tokusetsuLayout';
 
-import '../../styles/sass/enet.scss';
+import '../../styles/sass/rc.scss';
 
 // embedの情報やclassNameなどの情報
 const meta = {
   className: {
-    div: 'enet-base',
-    container: 'enet-contents',
-    jacket: 'enet-jacket',
+    div: 'rc-base',
+    container: 'rc-contents',
+    jacket: 'rc-jacket',
   },
   embed: {
     id: 'Y-u5xhcV_Mk',
@@ -153,46 +153,30 @@ const embed = (
 );
 
 const ENET = ({ data }) => {
-  const jacketImg = data.imageSharp.edges.filter(edge => edge.node.resize.src.includes('ENET_jacket_mini'));
-  const bgImg = data.imageSharp.edges.filter(edge => edge.node.resize.src.includes('ENET_background3'));
+  const jacketImg = data.imageSharp.edges.filter(edge => edge.node.resize.src.includes('Relaxin_Complex'));
+  const bgImg = data.imageSharp.edges.filter(edge => edge.node.resize.src.includes('rc_BackGround'));
 
   return (
     <BackGroundImage
       Tag="section"
       fluid={bgImg[0].node.fluid}
+      className="rc-background"
     >
       <TokusetsuLayout
         jacketImg={jacketImg[0].node.resize.src}
         details={details}
         meta={meta}
         embed={embed}
-        inverted
       >
         <Segment vertical size="large">
           <p>
-            Each Night Each Tale みんな、それぞれの夜を持っている。――
-          </p>
-          <p>
-            Aqua Blend Server による 東方アレンジアルバム第5弾!
-          </p>
-          <p>
-            インストJazzからボーカルPopsまで幅広い範囲を網羅！
-          </p>
-          <p>
-            ジャズアレンジは生演奏・一発録りです！！
+            Relaxin&#39; Complex
           </p>
           <List>
             <List.Header>頒布情報</List.Header>
-            <List.Item>頒布日　　　2017.12.29(コミックマーケット93)</List.Item>
-            <List.Item>頒布場所　　う-02b [Aqua Blend Server]</List.Item>
-            <List.Item>頒布価格　　1000円</List.Item>
-            <List.Item>　</List.Item>
-            <List.Item>
-              書店委託
-              <a href="https://www.melonbooks.co.jp/detail/detail.php?product_id=320333" target="_blank" rel="noopener noreferrer">
-              　　メロンブックス様
-              </a>
-            </List.Item>
+            <List.Item>頒布日　　　2015.12.30(コミックマーケット89)</List.Item>
+            <List.Item>頒布場所　　西う-43b [Aqua Blend Server]</List.Item>
+            <List.Item>頒布価格　　500円</List.Item>
           </List>
         </Segment>
       </TokusetsuLayout>
@@ -206,7 +190,7 @@ ENET.propTypes = {
 
 export const query = graphql`
   query {
-    imageSharp: allImageSharp(filter: {resolutions: {originalName: {in: ["ENET_jacket_mini.jpg","ENET_background3.jpg"]}}}) {
+    imageSharp: allImageSharp(filter: {resolutions: {originalName: {in: ["Relaxin_Complex.jpg","rc_BackGround.jpg"]}}}) {
       edges {
         node {
           resize(width: 600, height: 600) {
