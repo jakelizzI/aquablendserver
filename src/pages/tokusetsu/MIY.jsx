@@ -112,11 +112,6 @@ const details = [
 ];
 
 const embed = (
-  // <Embed
-  //   id={meta.embed.id}
-  //   placeholder={meta.embed.placeholder}
-  //   source={meta.embed.source}
-  // />
   <Iframe
     width="312"
     height="176"

@@ -18,7 +18,7 @@ const TokusetsuLayout = (props) => {
     segment = (
       <Grid.Row centered>
         <Grid.Column computer={6} tablet={16}>
-          <Segment vertical>
+          <Segment vertical className="embed-height">
             {embed}
           </Segment>
         </Grid.Column>
