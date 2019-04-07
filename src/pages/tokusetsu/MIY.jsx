@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import BackGroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
+import Iframe from 'react-iframe';
 
-import TokusetsuLayout from '../../components/tokusetsuLayout';
+import TokusetsuLayout from '../../layouts/tokusetsuLayout';
 
 import '../../styles/sass/miy.scss';
 
@@ -111,11 +112,18 @@ const details = [
 ];
 
 const embed = (
-  <Embed
-    id={meta.embed.id}
-    placeholder={meta.embed.placeholder}
-    source={meta.embed.source}
-  />
+  // <Embed
+  //   id={meta.embed.id}
+  //   placeholder={meta.embed.placeholder}
+  //   source={meta.embed.source}
+  // />
+  <Iframe
+    width="312"
+    height="176"
+    url="https://ext.nicovideo.jp/thumb/sm30248496"
+  >
+    <a href="https://www.nicovideo.jp/watch/sm30248496">【C91】 Midnight In Yourself / Aqua Blend Server 【XFD】</a>
+  </Iframe>
 );
 
 const ENET = ({ data }) => {
@@ -126,6 +134,7 @@ const ENET = ({ data }) => {
     <BackGroundImage
       Tag="section"
       fluid={bgImg[0].node.fluid}
+      className="miy-background"
     >
       <TokusetsuLayout
         jacketImg={jacketImg[0].node.resize.src}

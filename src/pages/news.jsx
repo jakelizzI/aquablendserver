@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { Divider, Grid, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
-import Layout from '../components/layout';
+import Layout from '../layouts/baseLayout';
 
 const News = ({ data }) => (
   <Layout>
@@ -16,12 +16,18 @@ const News = ({ data }) => (
       </Grid.Row>
       {data.allMarkdownRemark.edges.map(edge => (
         <Grid.Row>
-          <Grid.Column width="3" textAlign="right">
+          <Grid.Column computer="3" only="computer" textAlign="right">
             {edge.node.frontmatter.date}
             <br />
             {edge.node.frontmatter.type}
           </Grid.Column>
-          <Grid.Column width="7">
+          <Grid.Column only="tablet mobile" tablet="16" mobile="16">
+            <Divider horizontal>
+              {edge.node.frontmatter.date}
+              {edge.node.frontmatter.type}
+            </Divider>
+          </Grid.Column>
+          <Grid.Column computer="7" tablet="16" mobile="16">
             <div dangerouslySetInnerHTML={{ __html: edge.node.html }} />
           </Grid.Column>
         </Grid.Row>

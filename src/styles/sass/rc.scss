@@ -3,10 +3,14 @@
 	background-attachment: fixed;
 }
 .rc-contents {
+  background-color: rgba(255, 255, 255, 0.4);
   font-weight: bold;
 }
 .rc-jacket {
 	box-shadow:0px 0px 20px;
 	border: solid #000000;
 	border-width: 1px;
+}
+.rc-background::after {
+	background-attachment: fixed;
 }

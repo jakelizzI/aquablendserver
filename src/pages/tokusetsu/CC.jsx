@@ -3,7 +3,7 @@ import { List, Segment, Embed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import TokusetsuLayout from '../../components/tokusetsuLayout';
+import TokusetsuLayout from '../../layouts/tokusetsuLayout';
 
 import '../../styles/sass/cc.scss';
 

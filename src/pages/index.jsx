@@ -4,7 +4,7 @@ import { Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import Layout from '../components/layout';
+import Layout from '../layouts/baseLayout';
 import Carousel from '../components/carousel';
 import Topics from '../components/topics';
 import MyList from '../components/myList';

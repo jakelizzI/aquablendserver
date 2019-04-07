@@ -1,11 +1,12 @@
 import React from 'react';
 import {
-  List, Segment, Header, Image, Embed,
+  List, Segment, Header, Image,
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import Iframe from 'react-iframe';
 
-import TokusetsuLayout from '../../components/tokusetsuLayout';
+import TokusetsuLayout from '../../layouts/tokusetsuLayout';
 
 import '../../styles/sass/fc.scss';
 
@@ -121,11 +122,13 @@ const details = [
 ];
 
 const embed = (
-  <Embed
-    id={meta.embed.id}
-    placeholder={meta.embed.placeholder}
-    source={meta.embed.source}
-  />
+  <Iframe
+    width="312"
+    height="176"
+    url="https://ext.nicovideo.jp/thumb/sm29416115"
+  >
+    <a href="https://www.nicovideo.jp/watch/sm29416115">【東方】Fragmentary Complex / Aqua Blend Server【XFD】</a>
+  </Iframe>
 );
 
 const LU = ({ data }) => (

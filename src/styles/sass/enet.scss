@@ -7,3 +7,6 @@
 	border: solid #000000;
 	border-width: 1px;
 }
+.enet-background::after {
+	background-attachment: fixed;
+}

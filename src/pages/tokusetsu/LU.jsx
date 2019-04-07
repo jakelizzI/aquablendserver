@@ -1,9 +1,9 @@
 import React from 'react';
-import { List, Segment, Embed } from 'semantic-ui-react';
+import { List, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import TokusetsuLayout from '../../components/tokusetsuLayout';
+import TokusetsuLayout from '../../layouts/tokusetsuLayout';
 
 import '../../styles/sass/lu.scss';
 
@@ -97,20 +97,12 @@ const details = [
     ],
   },
 ];
-const embed = (
-  <Embed
-    id={meta.embed.id}
-    placeholder={meta.embed.placeholder}
-    source={meta.embed.source}
-  />
-);
 
 const LU = ({ data }) => (
   <TokusetsuLayout
     jacketImg={data.imageSharp.resize.src}
     details={details}
     meta={meta}
-    embed={embed}
     secondary
   >
     <Segment vertical size="large">

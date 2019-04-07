@@ -3,9 +3,8 @@ import { List, Segment, Embed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import BackGroundImage from 'gatsby-background-image';
-import styled from 'styled-components';
 
-import TokusetsuLayout from '../../components/tokusetsuLayout';
+import TokusetsuLayout from '../../layouts/tokusetsuLayout';
 
 import '../../styles/sass/enet.scss';
 
@@ -160,6 +159,7 @@ const ENET = ({ data }) => {
     <BackGroundImage
       Tag="section"
       fluid={bgImg[0].node.fluid}
+      className="enet-background"
     >
       <TokusetsuLayout
         jacketImg={jacketImg[0].node.resize.src}
@@ -221,8 +221,4 @@ export const query = graphql`
   }
 `;
 
-export default styled(ENET)`
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-`;
+export default ENET;

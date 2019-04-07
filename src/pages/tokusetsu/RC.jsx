@@ -3,9 +3,8 @@ import { List, Segment, Embed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import BackGroundImage from 'gatsby-background-image';
-import styled from 'styled-components';
 
-import TokusetsuLayout from '../../components/tokusetsuLayout';
+import TokusetsuLayout from '../../layouts/tokusetsuLayout';
 
 import '../../styles/sass/rc.scss';
 
@@ -32,42 +31,22 @@ const details = [
       {
         key: '1',
         head: '01.',
-        body: 'Inner Emotion (ラクトガール　～ 少女密室)',
+        body: 'eine Fantasie für Sie「神々が恋した幻想郷」',
       },
       {
         key: '2',
         head: '02.',
-        body: 'Restart The Adolescent Mission (恋色マスタースパーク)',
+        body: '時速60分殺人事件「天空のグリニッジ」',
       },
       {
         key: '3',
         head: '03.',
-        body: 'Half And Half (東方妖々夢　～ Ancient Temple)',
+        body: '紫烟「ネクロファンタジア」',
       },
       {
         key: '4',
         head: '04.',
-        body: 'Catch The Star In The Moon (星の器　～ Casket of Star)',
-      },
-      {
-        key: '5',
-        head: '05.',
-        body: '追憶の館 (上海紅茶館　～ Chinese Tea)',
-      },
-      {
-        key: '6',
-        head: '06.',
-        body: 'The Shadow Walker (レトロスペクティブ京都)',
-      },
-      {
-        key: '7',
-        head: '07.',
-        body: '物の怪のから騒ぎ (幽霊楽団　～ Phantom Ensemble)',
-      },
-      {
-        key: '8',
-        head: '08.',
-        body: 'My Favorite Rebel Night (メイガスナイト)',
+        body: '紅白巫女は渦と殻の夢を見る「二色蓮花蝶～Red And White」',
       },
     ],
   },
@@ -77,13 +56,18 @@ const details = [
     list: [
       {
         key: '1',
-        head: '宮森たしろう',
-        body: '(Bass[1-4,6-8],Arrange[1-4,6,8],Lyric[1,6],Mixing[1-8],Design)',
+        head: 'な↑なし',
+        body: '(Guitar[1-5],Arrange&Lyrics[3,5])',
       },
       {
         key: '2',
         head: 'm@ko',
-        body: '(Piano[1-8],Arrange[5,7])',
+        body: '(Piano[1-5],Arrange[1])',
+      },
+      {
+        key: '3',
+        head: '宮森たしろう',
+        body: '(Bass[1-5],Arrange[2,4])',
       },
     ],
   },
@@ -93,64 +77,32 @@ const details = [
     list: [
       {
         key: '1',
-        head: 'はな',
-        body: '(Vocal[1,6])<HP: http://forest.lovepop.jp/ >',
+        head: 'jakelizzi',
+        body: '(Drums[1,2,4])',
       },
       {
         key: '2',
-        head: 'jakelizzi',
-        body: '(Drums[2,3,4,7,8])',
+        head: 'あーさー',
+        body: '(Drums[3,5])',
       },
       {
         key: '3',
-        head: 'H.O.',
-        body: '(Alto sax[1-4,7,8])',
+        head: '　',
+        body: '　',
       },
       {
         key: '4',
-        head: 'しぇぱ',
-        body: '(Violin[2])',
+        head: '東天紅',
+        body: 'Design&Illustration',
       },
       {
         key: '5',
-        head: '　',
-        body: '　',
-      },
-      {
-        key: '6',
-        head: '息吹のつ',
-        body: '(Illustration)<HP: https://www.pixiv.net/member.php?id=7013 >',
-      },
-      {
-        key: '7',
-        head: '　',
-        body: '　',
-      },
-      {
-        key: '8',
-        head: 'StudioTLive\n(田島克洋)',
-        body: '(Recording[1-6])',
-      },
-      {
-        key: '9',
-        head: '世田谷RECスタジオ',
-        body: '(Recording[4,8])',
-      },
-      {
-        key: '10',
-        head: 'Studio Cinnamon',
-        body: '(Mastering[1-8])',
+        head: 'げいほ',
+        body: 'Mix&Mastering[1,3,5]',
       },
     ],
   },
 ];
-const embed = (
-  <Embed
-    id={meta.embed.id}
-    placeholder={meta.embed.placeholder}
-    source={meta.embed.source}
-  />
-);
 
 const ENET = ({ data }) => {
   const jacketImg = data.imageSharp.edges.filter(edge => edge.node.resize.src.includes('Relaxin_Complex'));
@@ -166,7 +118,6 @@ const ENET = ({ data }) => {
         jacketImg={jacketImg[0].node.resize.src}
         details={details}
         meta={meta}
-        embed={embed}
       >
         <Segment vertical size="large">
           <p>
@@ -205,8 +156,4 @@ export const query = graphql`
   }
 `;
 
-export default styled(ENET)`
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-`;
+export default ENET;
