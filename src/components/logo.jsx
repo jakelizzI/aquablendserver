@@ -1,6 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
+import { Header } from 'semantic-ui-react';
 
 export default () => (
   <StaticQuery
@@ -16,9 +17,11 @@ export default () => (
       }
     `}
     render={data => (
-      <Link to="/">
-        <Img fixed={data.placeholderImage.childImageSharp.fixed} />
-      </Link>
+      <Header as="h1">
+        <Link to="/">
+          <Img fixed={data.placeholderImage.childImageSharp.fixed} alt="Aqua Blend Server" />
+        </Link>
+      </Header>
     )}
   />
 );
