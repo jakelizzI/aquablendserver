@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Aqua Blend Server`,
+    title: `Aqua Blend Server公式ホームページ`,
     description: `東方JazzアレンジサークルのAquaBlendServerの公式ホームページです。Official website of Aqua Blend Server`,
     author: `@jakelizzi`,
   },
