@@ -6,7 +6,7 @@ const Topics = ({ allMarkdownRemark }) => (
   <Grid divided centered>
     <Grid.Row>
       <Grid.Column computer={10} tablet={16}>
-        <Header as="h1">Aqua Blend Server&#39;s Topics</Header>
+        <Header as="h2">Aqua Blend Server&#39;s Topics</Header>
       </Grid.Column>
     </Grid.Row>
     <Grid.Row>

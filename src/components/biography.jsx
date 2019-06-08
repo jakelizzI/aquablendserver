@@ -7,7 +7,7 @@ const Biography = () => (
   <Grid centered>
     <Grid.Row>
       <Grid.Column computer={10} tablet={16}>
-        <Header as="h1">Member</Header>
+        <Header as="h2">Member</Header>
       </Grid.Column>
     </Grid.Row>
     <Grid.Row columns={2}>
@@ -57,7 +57,7 @@ const Biography = () => (
     </Grid.Row>
     <Grid.Row>
       <Grid.Column computer={10} tablet={16}>
-        <Header as="h1">Support</Header>
+        <Header as="h2">Support</Header>
       </Grid.Column>
     </Grid.Row>
     <Grid.Row columns={2}>

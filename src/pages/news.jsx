@@ -11,7 +11,7 @@ const News = ({ data }) => (
     <Grid divided centered>
       <Grid.Row>
         <Grid.Column width="10">
-          <Header as="h1">Aqua Blend Server&#39;s News</Header>
+          <Header as="h2">Aqua Blend Server&#39;s News</Header>
         </Grid.Column>
       </Grid.Row>
       {data.allMarkdownRemark.edges.map(edge => (

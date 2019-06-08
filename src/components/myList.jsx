@@ -7,7 +7,7 @@ const MyList = () => (
   <Grid centered>
     <Grid.Row>
       <Grid.Column computer={10} tablet={16}>
-        <Header as="h1">My List</Header>
+        <Header as="h2">My List</Header>
       </Grid.Column>
     </Grid.Row>
     <Grid.Row columns={2}>
