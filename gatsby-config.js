@@ -3,6 +3,7 @@ module.exports = {
     title: `Aqua Blend Server公式ホームページ`,
     description: `東方JazzアレンジサークルのAquaBlendServerの公式ホームページです。Official website of Aqua Blend Server`,
     author: `@jakelizzi`,
+    siteUrl: `https://aquablendserver.work`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -71,5 +72,6 @@ module.exports = {
         respectDNT: true,
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 };
