@@ -11,18 +11,18 @@ export default () => (
       <Menu.Item
         link
         onClick={
-          () => navigate('news')
+          () => navigate('')
         }
       >
-          news
+          home
       </Menu.Item>
       <Menu.Item
         link
         onClick={
-          () => navigate('blog')
+          () => navigate('news')
         }
       >
-        blog
+          news
       </Menu.Item>
       <Menu.Item
         link
