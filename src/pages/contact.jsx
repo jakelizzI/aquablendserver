@@ -1,14 +1,15 @@
 import React from 'react';
-import { Button, Grid, TextArea, Label, Form, Header, Input, Icon, Divider } from 'semantic-ui-react';
+import {
+  Button, Grid, TextArea, Form, Header, Input, Icon, Divider
+} from 'semantic-ui-react';
 
 import Layout from '../layouts/baseLayout';
 
 const sendMail = () => {
-
   const email = document.getElementById('email').value;
   const message = document.getElementById('message').value;
-  const data = {'text' : email + ' | ' + message}
-  const url = 'https://hooks.slack.com/services/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+  const data = { text: `${email} | ${message}` };
+  const url = process.env.SLACK_API;
 
   fetch(url, {
     method: 'POST',
@@ -36,7 +37,7 @@ const Contact = () => (
         <Grid.Row centered>
           <Grid.Column computer={12} tablet={16}>
             <p>
-              ご感想・ご要望、その他ご質問などございましたら下記のフォームより送信してください。{process.env.GATSBY_MY_ENV}|
+              ご感想・ご要望、その他ご質問などございましたら下記のフォームより送信してください。
             </p>
           </Grid.Column>
         </Grid.Row>
