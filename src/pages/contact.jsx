@@ -8,12 +8,13 @@ import Layout from '../layouts/baseLayout';
 
 const Contact = () => {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [visibility, setVisibility] = useState(false);
 
   const sendMessage = () => {
-    const data = { text: `email : ${email} \n ${message}` };
+    const data = { text: `<!channel> \nemail : ${email} \nname : ${name} \n ${message}` };
     const url = process.env.GATSBY_SLACK_API;
 
     // eslint-disable-next-line no-undef
@@ -72,7 +73,20 @@ const Contact = () => {
           </Grid.Row>
           <Grid.Row centered>
             <Grid.Column computer={2} textAlign="right" only="computer">
-              <Popup content="必須項目です" position="bottom right" trigger={<Header as="h3">message*</Header>} />
+              <Popup content="必須項目です" position="top right" trigger={<Header as="h3">name*</Header>} />
+            </Grid.Column>
+            <Grid.Column tablet={16} only="mobile tablet">
+              <Popup content="必須項目です" position="top left" trigger={<Header as="h3">name*</Header>} />
+            </Grid.Column>
+            <Grid.Column computer={10} tablet={16}>
+              <Input iconPosition="left" placeholder="name">
+                <input id="name" type="name" size="64" onChange={e => setName(e.target.value)} required />
+              </Input>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row centered>
+            <Grid.Column computer={2} textAlign="right" only="computer">
+              <Popup content="必須項目です" position="top right" trigger={<Header as="h3">message*</Header>} />
             </Grid.Column>
             <Grid.Column tablet={16} only="mobile tablet">
               <Popup content="必須項目です" position="top left" trigger={<Header as="h3">message*</Header>} />
