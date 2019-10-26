@@ -55,11 +55,6 @@ const Biography = () => (
         </Card>
       </Grid.Column>
     </Grid.Row>
-    <Grid.Row>
-      <Grid.Column computer={10} tablet={16}>
-        <Header as="h2">Support</Header>
-      </Grid.Column>
-    </Grid.Row>
     <Grid.Row columns={2}>
       <Grid.Column computer={5} tablet={16}>
         <Card>
@@ -76,8 +71,9 @@ const Biography = () => (
             <Card.Meta>ドラム</Card.Meta>
             <Card.Description>
               <List bulleted>
-                <List.Item>演奏する人</List.Item>
                 <List.Item>ホームページを動かしている人</List.Item>
+                <List.Item>演奏する人</List.Item>
+                <List.Item>運営する人</List.Item>
               </List>
             </Card.Description>
           </Card.Content>
