@@ -42,7 +42,7 @@ News.propTypes = {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
+    allMarkdownRemark(filter: {frontmatter: {category: {eq: "news"}}}, sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
           frontmatter {
