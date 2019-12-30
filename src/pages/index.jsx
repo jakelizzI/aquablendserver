@@ -37,7 +37,7 @@ Index.propTypes = {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, limit: 1) {
+    allMarkdownRemark(filter: {frontmatter: {category: {eq: "news"}}}, sort: {fields: frontmatter___date, order: DESC}, limit: 1) {
       edges {
         node {
           frontmatter {
