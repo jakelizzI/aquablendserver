@@ -3,6 +3,7 @@ import { Container, Grid, Header, Divider, List, Segment, Label } from 'semantic
 
 import Layout from '../layouts/baseLayout';
 
+const windowGlobal = typeof window !== 'undefined' && window
 const mobileWindowSize = 768;
 
 const Discography = ({ data }) => (
@@ -14,18 +15,18 @@ const Discography = ({ data }) => (
           <Grid.Column computer={13} tablet={16} mobile={16}>
             { data.allMarkdownRemark.edges.map( (edge, index) => (
               <Segment raised>
-                { index == 0 ? <Label color='red' ribbon="right">NEW!</Label> : "" }
-                <Label color='black' attached="top left">{ edge.node.frontmatter.date } release</Label>
+                { index == 0 ? <Label color='red' ribbon='right'>NEW!</Label> : '' }
+                <Label color='black' attached='top left'>{ edge.node.frontmatter.date } release</Label>
                 <Grid columns={2} >
                   <Grid.Row key={ index }>
-                    <Grid.Column computer={6} tablet={16} mobile={16} textAlign="center">
+                    <Grid.Column computer={6} tablet={16} mobile={16} textAlign='center'>
                       <img src={ edge.node.frontmatter.image.childImageSharp.fixed.src } />
                     </Grid.Column>
                     <Grid.Column computer={10} tablet={16} mobile={16}>
-                      <Header as="h2" textAlign="center">{ edge.node.frontmatter.title }</Header>
+                      <Header as='h2' textAlign='center'>{ edge.node.frontmatter.title }</Header>
                       <Divider />
-                      <Container text textAlign="left" >
-                        <List ordered size={ window.innerWidth < mobileWindowSize ? "mini" : "small" } >
+                      <Container text textAlign='left' >
+                        <List ordered size={ windowGlobal.innerWidth < mobileWindowSize ? 'mini' : 'small' } >
                           { edge.node.frontmatter.tracks.map( (track, index) => (
                             <List.Item >{track}</List.Item>
                           )) }
