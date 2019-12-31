@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Header, Icon } from 'semantic-ui-react';
+import { Grid, Header, Icon, Image } from 'semantic-ui-react';
 
 import nicoIcon from '../images/icons/nc3132.jpg';
 
@@ -16,11 +16,8 @@ const MyList = () => (
           href="https://www.nicovideo.jp/mylist/54270948"
           target="brank"
         >
-          <img
-            src={nicoIcon}
-            alt="ニコニコ動画"
-          />
-          ニコニコ動画
+          <Image src={nicoIcon} size='tiny' verticalAlign='middle' />{' '}
+          <span>ニコニコ動画</span>
         </a>
       </Grid.Column>
       <Grid.Column computer={5} tablet={16} verticalAlign="middle">

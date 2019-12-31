@@ -10,24 +10,24 @@ const News = ({ data }) => (
     <Divider />
     <Grid divided centered>
       <Grid.Row>
-        <Grid.Column width="10">
+        <Grid.Column width={10}>
           <Header as="h2">Aqua Blend Server&#39;s News</Header>
         </Grid.Column>
       </Grid.Row>
       {data.allMarkdownRemark.edges.map(edge => (
         <Grid.Row>
-          <Grid.Column computer="3" only="computer" textAlign="right">
+          <Grid.Column computer={3} only="computer" textAlign="right">
             {edge.node.frontmatter.date}
             <br />
             {edge.node.frontmatter.type}
           </Grid.Column>
-          <Grid.Column only="tablet mobile" tablet="16" mobile="16">
+          <Grid.Column only="tablet mobile" tablet={16} mobile={16}>
             <Divider horizontal>
               {edge.node.frontmatter.date}
               {edge.node.frontmatter.type}
             </Divider>
           </Grid.Column>
-          <Grid.Column computer="7" tablet="16" mobile="16">
+          <Grid.Column computer={7} tablet={16} mobile={16}>
             <div dangerouslySetInnerHTML={{ __html: edge.node.html }} />
           </Grid.Column>
         </Grid.Row>
