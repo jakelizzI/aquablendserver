@@ -10,7 +10,7 @@ tracks: ["Liebe macht blind."
 ,"まどろみの中に誘われて"
 ,"liked girl"
 ,"The Dream Of Fusing Me"]
-originals: ["少女さとり ～ 3rd eye""
+originals: ["少女さとり ～ 3rd eye"
 ,"the Grimoire of Alice"
 ,"少女さとり ～ 3rd eye"
 ,"ラクトガール ～ 少女密室"
