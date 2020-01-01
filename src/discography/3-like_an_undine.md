@@ -5,7 +5,7 @@ type: "discography"
 category: "discography"
 image: "../images/etc/03_LU/lu_jacket_mini.jpg"
 shortName: "LU"
-tracks: ["有識と無意識のフェリチタ
+tracks: ["有識と無意識のフェリチタ"
 ,"アイストルマリン"
 ,"かえりみち"]
 originals: ["ハルトマンの妖怪少女"
