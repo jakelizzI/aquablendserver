@@ -131,7 +131,10 @@ const UR = ({ data }) => (
   >
     <Segment vertical size="large">
       <p>
-        Unconscious Room 明りも美しい。蔭も美しい。
+        Unconscious Room
+      </p>
+      <p>
+        明りも美しい。蔭も美しい。
       </p>
       <p>
         Aqua Blend Server による 東方アレンジアルバム第6弾!

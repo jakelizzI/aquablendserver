@@ -6,7 +6,8 @@ import Helmet from 'react-helmet';
 
 import Layout from '../layouts/baseLayout';
 import Carousel from '../components/carousel';
-import Topics from '../components/topics';
+import Information from '../components/information';
+import Shop from '../components/shop';
 import MyList from '../components/myList';
 import Biography from '../components/biography';
 
@@ -20,7 +21,10 @@ const Index = ({ data }) => (
       <Carousel placeholderImage={data.placeholderImage} />
     </Segment>
     <Segment basic>
-      <Topics allMarkdownRemark={data.allMarkdownRemark} />
+      <Information allMarkdownRemark={data.allMarkdownRemark} />
+    </Segment>
+    <Segment basic>
+      <Shop />
     </Segment>
     <Segment basic>
       <MyList />

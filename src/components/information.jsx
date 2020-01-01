@@ -2,11 +2,11 @@ import React from 'react';
 import { Grid, Header, Divider } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
-const Topics = ({ allMarkdownRemark }) => (
+const Information = ({ allMarkdownRemark }) => (
   <Grid divided centered>
     <Grid.Row>
       <Grid.Column computer={10} tablet={16}>
-        <Header as="h2">Aqua Blend Server&#39;s Topics</Header>
+        <Header as="h2">Information</Header>
       </Grid.Column>
     </Grid.Row>
     <Grid.Row>
@@ -32,8 +32,8 @@ const Topics = ({ allMarkdownRemark }) => (
   </Grid>
 );
 
-Topics.propTypes = {
+Information.propTypes = {
   allMarkdownRemark: PropTypes.isRequired,
 };
 
-export default Topics;
+export default Information;

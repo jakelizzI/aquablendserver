@@ -170,7 +170,10 @@ const ENET = ({ data }) => {
       >
         <Segment vertical size="large">
           <p>
-            Each Night Each Tale みんな、それぞれの夜を持っている。――
+            Each Night Each Tale
+          </p>
+          <p>
+            みんな、それぞれの夜を持っている。――
           </p>
           <p>
             Aqua Blend Server による 東方アレンジアルバム第5弾!

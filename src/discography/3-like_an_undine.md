@@ -1,10 +1,15 @@
 ---
 title: "Like an Undine"
-date: "2016-10-07"
+date: "2016/10/16"
 type: "discography"
 category: "discography"
 image: "../images/etc/03_LU/lu_jacket_mini.jpg"
-tracks: ["有識と無意識のフェリチタ (ハルトマンの妖怪少女)"
-,"アイストルマリン (おてんば恋娘)"
-,"かえりみち (U.N.オーエンは彼女なのか？)"]
+shortName: "LU"
+tracks: ["有識と無意識のフェリチタ
+,"アイストルマリン"
+,"かえりみち"]
+originals: ["ハルトマンの妖怪少女"
+,"おてんば恋娘"
+,"U.N.オーエンは彼女なのか？"
+]
 ---

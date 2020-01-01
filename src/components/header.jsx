@@ -14,7 +14,7 @@ export default () => (
           () => navigate('')
         }
       >
-          home
+          Home
       </Menu.Item>
       <Menu.Item
         link
@@ -22,7 +22,7 @@ export default () => (
           () => navigate('news')
         }
       >
-          news
+          News
       </Menu.Item>
       <Menu.Item
         link
@@ -30,7 +30,7 @@ export default () => (
           () => navigate('discography')
         }
       >
-        discography
+        Discography
       </Menu.Item>
       <Menu.Item
         link
@@ -38,7 +38,7 @@ export default () => (
           () => navigate('contact')
         }
       >
-        contact
+        Contact
       </Menu.Item>
     </Menu>
   </div>

@@ -8,7 +8,7 @@ const Footer = (props) => {
   const { inverted, secondary } = props;
   return (
     <Segment textAlign="center" inverted={inverted} secondary={secondary}>
-      {`copyright (c) ${year}  "Aqua Blend Server"  all rights reserved.`}
+      {`copyright (c) 2015-${year}  Aqua Blend Server  all rights reserved.`}
     </Segment>
   );
 };

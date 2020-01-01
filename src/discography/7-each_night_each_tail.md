@@ -1,0 +1,25 @@
+---
+title: "Each Night, Each Tale"
+date: "2017/12/29"
+type: "discography"
+category: "discography"
+image: "../images/etc/06_ENET/ENET_jacket_mini.jpg"
+shortName: "ENET"
+tracks: ["Inner Emotion"
+,"Restart The Adolescent Mission"
+,"Half And Half"
+,"Catch The Star In The Moon"
+,"追憶の館"
+,"The Shadow Walker"
+,"物の怪のから騒ぎ"
+,"My Favorite Rebel Night"]
+originals: ["ラクトガール ～ 少女密室"
+,"恋色マスタースパーク"
+,"東方妖々夢 ～ Ancient Temple"
+,"星の器 ～ Casket of Star"
+,"上海紅茶館 ～ Chinese Tea"
+,"レトロスペクティブ京都"
+,"幽霊楽団　～ Phantom Ensemble"
+,"メイガスナイト"
+]
+---

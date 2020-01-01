@@ -48,6 +48,11 @@ const details = [
         head: '04.',
         body: '紅白巫女は渦と殻の夢を見る「二色蓮花蝶～Red And White」',
       },
+      {
+        key: '5',
+        head: '05.',
+        body: 'Re:Desired Life「デザイアドライブ」「古きユアンシェン」',
+      },
     ],
   },
   {// Personnel list

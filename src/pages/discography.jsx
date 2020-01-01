@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, Header, Divider, List, Segment, Label } from 'semantic-ui-react';
+import { Container, Grid, Header, Divider, List, Segment, Label, Image } from 'semantic-ui-react';
 
 import Layout from '../layouts/baseLayout';
 
@@ -20,15 +20,26 @@ const Discography = ({ data }) => (
                 <Grid columns={2} >
                   <Grid.Row key={ index }>
                     <Grid.Column computer={6} tablet={16} mobile={16} textAlign='center'>
-                      <img src={ edge.node.frontmatter.image.childImageSharp.fixed.src } />
+                      { edge.node.frontmatter.shortName !== 'DEMO' ? (
+                        <Image
+                          as='a'
+                          src={ edge.node.frontmatter.image.childImageSharp.fixed.src }
+                          href={`/tokusetsu/${ edge.node.frontmatter.shortName }`}
+                          target='_brank'
+                        />
+                        ) : <Image src={ edge.node.frontmatter.image.childImageSharp.fixed.src } />
+                      }
                     </Grid.Column>
                     <Grid.Column computer={10} tablet={16} mobile={16}>
                       <Header as='h2' textAlign='center'>{ edge.node.frontmatter.title }</Header>
                       <Divider />
                       <Container text textAlign='left' >
                         <List ordered size={ windowGlobal.innerWidth < mobileWindowSize ? 'mini' : 'small' } >
-                          { edge.node.frontmatter.tracks.map( (track, index) => (
-                            <List.Item >{track}</List.Item>
+                          { edge.node.frontmatter.tracks.map( (track, index2) => (
+                            <List.Item key={ index2 } >
+                              <List.Content>{ track }</List.Content>
+                              <List.Description>原曲：{ edge.node.frontmatter.originals[index2] }</List.Description>
+                            </List.Item>
                           )) }
                         </List>
                       </Container>
@@ -53,14 +64,16 @@ export const query = graphql`
             title
             date
             type
+            shortName
             image {
               childImageSharp {
-                fixed(width: 256) {
+                fixed(width: 360) {
                   src
                 }
               }
             }
             tracks
+            originals
           }
           html
         }

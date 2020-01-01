@@ -91,7 +91,7 @@ const TokusetsuLayout = (props) => {
                           <Grid>
                             <Grid.Row>
                               <Grid.Column computer={detail.headSize} tablet={detail.headSize} mobile={16}>
-                                {content.head}
+                                { content.head }
                               </Grid.Column>
                               <Grid.Column computer={16 - detail.headSize} tablet={16 - detail.headSize} mobile={16} verticalAlign="middle">
                                 {content.body}
