@@ -17,7 +17,7 @@ const meta = {
   },
   embed: {
     id: 'Y-u5xhcV_Mk',
-    placeholder: 'http://img.youtube.com/vi/Y-u5xhcV_Mk/mqdefault.jpg',
+    placeholder: 'https://img.youtube.com/vi/Y-u5xhcV_Mk/mqdefault.jpg',
     source: 'youtube',
   },
 };

@@ -16,7 +16,7 @@ const meta = {
   },
   embed: {
     id: 'dAfsIPWKDK8',
-    placeholder: 'http://img.youtube.com/vi/dAfsIPWKDK8/mqdefault.jpg',
+    placeholder: 'https://img.youtube.com/vi/dAfsIPWKDK8/mqdefault.jpg',
     source: 'youtube',
   },
 };
