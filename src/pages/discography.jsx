@@ -13,41 +13,41 @@ const Discography = ({ data }) => (
       <Grid columns={1}>
         <Grid.Row centered>
           <Grid.Column computer={13} tablet={16} mobile={16}>
-            { data.allMarkdownRemark.edges.map( (edge, index) => (
-              <Segment raised>
-                { index == 0 ? <Label color='red' ribbon='right'>NEW!</Label> : '' }
-                <Label color='black' attached='top left'>{ edge.node.frontmatter.date } release</Label>
+            {data.allMarkdownRemark.edges.map((edge, index) => (
+              <Segment raised key={index}>
+                {index == 0 ? <Label color='red' ribbon='right'>NEW!</Label> : ''}
+                <Label color='black' attached='top left'>{edge.node.frontmatter.date} release</Label>
                 <Grid columns={2} >
-                  <Grid.Row key={ index }>
+                  <Grid.Row>
                     <Grid.Column computer={6} tablet={16} mobile={16} textAlign='center'>
-                      { edge.node.frontmatter.shortName !== 'DEMO' ? (
+                      {edge.node.frontmatter.shortName !== 'DEMO' ? (
                         <Image
                           as='a'
-                          src={ edge.node.frontmatter.image.childImageSharp.fixed.src }
-                          href={`/tokusetsu/${ edge.node.frontmatter.shortName }`}
+                          src={edge.node.frontmatter.image.childImageSharp.fixed.src}
+                          href={`/tokusetsu/${edge.node.frontmatter.shortName}`}
                           target='_brank'
                         />
-                        ) : <Image src={ edge.node.frontmatter.image.childImageSharp.fixed.src } />
+                      ) : <Image src={edge.node.frontmatter.image.childImageSharp.fixed.src} />
                       }
                     </Grid.Column>
                     <Grid.Column computer={10} tablet={16} mobile={16}>
-                      <Header as='h2' textAlign='center'>{ edge.node.frontmatter.title }</Header>
+                      <Header as='h2' textAlign='center'>{edge.node.frontmatter.title}</Header>
                       <Divider />
                       <Container text textAlign='left' >
-                        <List ordered size={ windowGlobal.innerWidth < mobileWindowSize ? 'mini' : 'small' } >
-                          { edge.node.frontmatter.tracks.map( (track, index2) => (
-                            <List.Item key={ index2 } >
-                              <List.Content>{ track }</List.Content>
-                              <List.Description>原曲：{ edge.node.frontmatter.originals[index2] }</List.Description>
+                        <List ordered size={windowGlobal.innerWidth < mobileWindowSize ? 'mini' : 'small'} >
+                          {edge.node.frontmatter.tracks.map((track, index2) => (
+                            <List.Item key={index2} >
+                              <List.Content>{track?.name}</List.Content>
+                              <List.Description>原曲：{track?.original}</List.Description>
                             </List.Item>
-                          )) }
+                          ))}
                         </List>
                       </Container>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
               </Segment>
-            )) }
+            ))}
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -72,8 +72,10 @@ export const query = graphql`
                 }
               }
             }
-            tracks
-            originals
+            tracks {
+              name
+              original
+            }
           }
           html
         }
