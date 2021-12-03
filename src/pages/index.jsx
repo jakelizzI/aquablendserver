@@ -20,16 +20,16 @@ const Index = ({ data }) => (
     <Segment basic>
       <Carousel placeholderImage={data.placeholderImage} />
     </Segment>
-    <Segment basic>
+    <Segment vertical>
       <Information allMarkdownRemark={data.allMarkdownRemark} />
     </Segment>
-    <Segment basic>
+    <Segment vertical>
       <Shop />
     </Segment>
-    <Segment basic>
+    <Segment vertical>
       <MyList />
     </Segment>
-    <Segment basic>
+    <Segment vertical>
       <Biography />
     </Segment>
   </Layout>
