@@ -8,7 +8,7 @@ shortName: "FC"
 tracks: [
   {
     name: "Liebe macht blind.", 
-    original: "少女さとり ～ 3rd eye"
+    original: "恋色マスタースパーク"
   },
   {
     name: "Magical City And Witch", 
