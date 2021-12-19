@@ -100,7 +100,7 @@ const details = [
 
 const LU = ({ data }) => (
   <TokusetsuLayout
-    jacketImg={data.imageSharp.fixed.src}
+    jacketImg={data.imageSharp.resize.src}
     details={details}
     meta={meta}
     secondary
