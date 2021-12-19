@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-import Img from 'gatsby-image';
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import PropTypes from 'prop-types';
 
 import '../styles/sass/carousel.scss';
@@ -19,16 +19,20 @@ const settings = {
 
 const Carousel = ({ placeholderImage }) => (
   <Slider {...settings}>
-    {placeholderImage.edges.map((element, index) => (
-      <a target="_blank" rel="noopener noreferrer" href={`/tokusetsu/${element.node.name.slice(3)}`} key={index.toString()}>
-        <Img fluid={element.node.childImageSharp.fluid} />
-      </a>
-    ))}
+    {placeholderImage.nodes.map((node, index) => {
+      const urName = node.name.slice(3);
+      return (
+        <a target="_blank" rel="noopener noreferrer" href={`/tokusetsu/${urName}`} key={index.toString()}>
+          <GatsbyImage image={getImage(node.childrenImageSharp[0])} alt={urName} />
+        </a>
+      );
+    })
+    }
   </Slider>
 );
 
 Carousel.propTypes = {
-  placeholderImage: PropTypes.isRequired,
+  placeholderImage: PropTypes.object.isRequired,
 };
 
 export default Carousel;

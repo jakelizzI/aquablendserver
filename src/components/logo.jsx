@@ -1,27 +1,27 @@
 import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { Header } from 'semantic-ui-react';
 
 export default () => (
   <StaticQuery
-    query={graphql`
-      query {
-        placeholderImage: file(relativePath: { eq: "logos/logo-sample-2.png" }) {
-          childImageSharp {
-            fixed(width: 246, height: 111) {
-              ...GatsbyImageSharpFixed
-            }
-          }
+    query={graphql`{
+        imageSharp(fixed: {originalName: {eq: "logo-sample-2.png"}}) {
+          gatsbyImageData(layout: FIXED, width: 246, height: 111)
         }
       }
     `}
-    render={data => (
-      <Header as="h1">
-        <Link to="/">
-          <Img fixed={data.placeholderImage.childImageSharp.fixed} alt="Aqua Blend Server" />
-        </Link>
-      </Header>
-    )}
+    render={data => {
+      const image = getImage(data.imageSharp);
+      return (
+        <Header as="h1">
+          <Link to="/">
+            <GatsbyImage
+              image={image}
+              alt="Aqua Blend Server" />
+          </Link>
+        </Header>
+      );
+    }}
   />
 );

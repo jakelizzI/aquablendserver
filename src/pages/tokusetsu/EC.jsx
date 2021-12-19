@@ -5,18 +5,18 @@ import { graphql } from 'gatsby';
 
 import TokusetsuLayout from '../../layouts/tokusetsuLayout';
 
-import '../../styles/sass/cc.scss';
+import '../../styles/sass/ec.scss';
 
 // embedの情報やclassNameなどの情報
 const meta = {
   className: {
-    div: 'cc-base',
-    container: 'cc-contents',
-    jacket: 'cc-jacket',
+    div: 'ec-base',
+    container: 'ec-contents',
+    jacket: 'ec-jacket',
   },
   embed: {
-    id: '3vBpIaNOFfQ',
-    placeholder: 'https://img.youtube.com/vi/3vBpIaNOFfQ/mqdefault.jpg',
+    id: 'TOOjLQ-RpGA',
+    placeholder: 'https://img.youtube.com/vi/TOOjLQ-RpGA/mqdefault.jpg',
     source: 'youtube',
   },
 };
@@ -30,27 +30,32 @@ const details = [
       {
         key: '1',
         head: '01.',
-        body: 'You Lose An Alarm Clock. (小さな小さな賢将)',
+        body: 'Being Apple (original: Bad Apple!!)',
       },
       {
         key: '2',
         head: '02.',
-        body: 'Flowering Oversleeping (フラワリングナイト)',
+        body: 'Fall Of The Light (original: 信仰は儚き人間の為に)',
       },
       {
         key: '3',
         head: '03.',
-        body: 'Feel like bein\' with you. (砕月)',
+        body: '幻想の蛙、巫女と踊る (original: ネイティブフェイス)',
       },
       {
         key: '4',
         head: '04.',
-        body: '1884 (明治十七年の上海アリス)',
+        body: 'The Ruins of A Certain Kingdom(original: 亡き王女の為のセプテット)',
       },
       {
         key: '5',
         head: '05.',
-        body: 'Do I Have To Believe In Spring? (幽雅に咲かせ、墨染の桜　～ Border of Life)',
+        body: 'ハイ・アンド・ラウンド(original: エクステンドアッシュ　～ 蓬莱人)',
+      },
+      {
+        key: '6',
+        head: '06.',
+        body: '8:09 p.m.(original: 厄神様の通り道　～ Dark Road & 運命のダークサイド)',
       },
     ],
   },
@@ -60,13 +65,18 @@ const details = [
     list: [
       {
         key: '1',
-        head: 'たしろう',
-        body: 'Bass[1-5],Arrange[1,2,5]',
+        head: '宮森たしろう',
+        body: '(Bass[1-6], Arrange[M2,5] , Design)',
       },
       {
         key: '2',
         head: 'm@ko',
-        body: 'Piano[3-5],Arrange[3,4],Lyric[3]',
+        body: '(Piano[1-6],Arrange[M1,3-4,6])',
+      },
+      {
+        key: '3',
+        head: 'jakelizzi',
+        body: '(Drums[3-4,6])',
       },
     ],
   },
@@ -76,23 +86,23 @@ const details = [
     list: [
       {
         key: '1',
-        head: 'jakelizzi',
-        body: 'Drums[2-5]',
+        head: 'ちゃんゆう',
+        body: '(Recording Engineer, Mastering Engineer)',
       },
       {
         key: '2',
-        head: 'H.O.',
-        body: 'Alto sax[1,2,4]',
+        head: 'あやか',
+        body: '(Mixing Engineer)',
       },
       {
         key: '3',
-        head: 'はな',
-        body: 'Vocal[3]',
+        head: '　',
+        body: '　',
       },
       {
         key: '4',
-        head: 'な↑なし',
-        body: 'Guitar[3]',
+        head: 'ぢせ',
+        body: '(Illustration)',
       },
       {
         key: '5',
@@ -101,22 +111,13 @@ const details = [
       },
       {
         key: '6',
-        head: '東天紅',
-        body: 'Design&Illustration',
-      },
-      {
-        key: '7',
-        head: '世田谷RECスタジオ',
-        body: 'Recording[1-5],mixing[1-5]',
-      },
-      {
-        key: '8',
-        head: 'Studio Cinnamon',
-        body: 'Mastering[1-5]',
+        head: 'StudioTLive',
+        body: '(Recording[1-6])',
       },
     ],
   },
 ];
+
 const embed = (
   <Embed
     id={meta.embed.id}
@@ -125,40 +126,41 @@ const embed = (
   />
 );
 
-const LU = ({ data }) => (
+const EC = ({ data }) => (
   <TokusetsuLayout
     jacketImg={data.imageSharp.resize.src}
     details={details}
     meta={meta}
     embed={embed}
-    secondary
+    inverted
   >
     <Segment vertical size="large">
       <p>
-        Crystal Complex
+        Effulgent Compex
       </p>
       <p>
-        Aqua Blend Serverによる東方アレンジアルバム第4弾！
+        凪たる朝に光あれ
+      </p>
+      <p>
+        東方アレンジアルバム第7弾！
       </p>
       <List>
         <List.Header>頒布情報</List.Header>
-        <List.Item>頒布日１　　2017.10.15(秋季例大祭)</List.Item>
-        <List.Item>頒布場所１　い-33a [Aqua Blend Server]</List.Item>
-        <List.Item>頒布日２　　2017.10.22(東方紅楼夢)</List.Item>
-        <List.Item>頒布場所２　Ｌ-11b [Aqua Blend Server]</List.Item>
-        <List.Item>頒布価格　　500円</List.Item>
+        <List.Item>頒布日　　　2021.12.21(コミックマーケット99)</List.Item>
+        <List.Item>頒布場所　　東ケ-43b [Aqua Blend Server]</List.Item>
+        <List.Item>頒布価格　　1000円</List.Item>
       </List>
     </Segment>
   </TokusetsuLayout>
 );
 
-LU.propTypes = {
+EC.propTypes = {
   data: PropTypes.shape().isRequired,
 };
 
 export const query = graphql`
   query {
-    imageSharp(resize: {originalName: {eq: "cc_jacket_mini.jpg"}}) {
+    imageSharp(resize: {originalName: {eq: "EC_jacket_mini.jpg"}}) {
       resize {
         src
       }
@@ -166,4 +168,4 @@ export const query = graphql`
   }
 `;
 
-export default LU;
+export default EC;
