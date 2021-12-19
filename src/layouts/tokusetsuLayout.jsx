@@ -4,6 +4,7 @@ import {
   Container, Grid, Image, List, Segment, Header,
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import Footer from '../components/footer';
 
@@ -91,7 +92,7 @@ const TokusetsuLayout = (props) => {
                           <Grid>
                             <Grid.Row>
                               <Grid.Column computer={detail.headSize} tablet={detail.headSize} mobile={16}>
-                                { content.head }
+                                {content.head}
                               </Grid.Column>
                               <Grid.Column computer={16 - detail.headSize} tablet={16 - detail.headSize} mobile={16} verticalAlign="middle">
                                 {content.body}
@@ -134,6 +135,7 @@ TokusetsuLayout.propTypes = {
   inverted: PropTypes.bool,
   secondary: PropTypes.bool,
   embed: PropTypes.node,
+  jacketImgComponent: PropTypes.node,
 };
 
 export default TokusetsuLayout;

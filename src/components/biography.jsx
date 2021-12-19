@@ -24,7 +24,7 @@ const Biography = () => (
                     target="blank"
                   >
                     宮森たしろう
-                    <Icon name="twitter" size={48} />
+                    <Icon name="twitter" />
                   </a>
                 </Card.Header>
                 <Card.Meta>ベース</Card.Meta>
@@ -44,7 +44,7 @@ const Biography = () => (
                     target="blank"
                   >
                     m@ko
-                    <Icon name="twitter" size={48} />
+                    <Icon name="twitter" />
                   </a>
                 </Card.Header>
                 <Card.Meta>ピアノ</Card.Meta>
@@ -63,7 +63,7 @@ const Biography = () => (
                     target="blank"
                   >
                     jakelizzi
-                    <Icon name="twitter" size={48} />
+                    <Icon name="twitter" />
                   </a>
                 </Card.Header>
                 <Card.Meta>ドラム</Card.Meta>

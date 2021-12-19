@@ -39,7 +39,7 @@ const Information = ({ allMarkdownRemark }) => (
 );
 
 Information.propTypes = {
-  allMarkdownRemark: PropTypes.isRequired,
+  allMarkdownRemark: PropTypes.object.isRequired,
 };
 
 export default Information;

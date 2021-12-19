@@ -5,6 +5,8 @@ import { graphql } from 'gatsby';
 import BackGroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
 import Iframe from 'react-iframe';
+import { getImage } from "gatsby-plugin-image";
+import { convertToBgImage } from "gbimage-bridge";
 
 import TokusetsuLayout from '../../layouts/tokusetsuLayout';
 
@@ -122,17 +124,20 @@ const embed = (
 );
 
 const ENET = ({ data }) => {
-  const jacketImg = data.imageSharp.edges.filter(edge => edge.node.resize.src.includes('miy_jacket_mini'));
-  const bgImg = data.imageSharp.edges.filter(edge => edge.node.resize.src.includes('miy_back'));
+  const jacketImg = data.allImageSharp.nodes.find(node => node.resize.src.includes('miy_jacket_mini'));
+  const bgImg = data.allImageSharp.nodes.find(node => node.resize.src.includes('miy_back'));
+
+  const bgImageComponent = convertToBgImage(getImage(bgImg.gatsbyImageData));
 
   return (
     <BackGroundImage
       Tag="section"
-      fluid={bgImg[0].node.fluid}
+      {...bgImageComponent}
       className="miy-background"
+      alt={bgImg.resize.src}
     >
       <TokusetsuLayout
-        jacketImg={jacketImg[0].node.resize.src}
+        jacketImg={jacketImg.resize.src}
         details={details}
         meta={meta}
         embed={embed}
@@ -168,17 +173,14 @@ ENET.propTypes = {
 };
 
 export const query = graphql`
-  query {
-    imageSharp: allImageSharp(filter: {resolutions: {originalName: {in: ["miy_jacket_mini.jpg","miy_back.jpg"]}}}) {
-      edges {
-        node {
-          resize(width: 600, height: 600) {
-            src
-          }
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+  query {allImageSharp(
+      filter: {resize: {originalName: {in: ["miy_jacket_mini.jpg", "miy_back.jpg"]}}}
+    ) {
+      nodes {
+        resize {
+          src
         }
+        gatsbyImageData
       }
     }
   }

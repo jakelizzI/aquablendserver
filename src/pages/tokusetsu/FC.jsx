@@ -174,8 +174,8 @@ LU.propTypes = {
 
 export const query = graphql`
   query {
-    imageSharp: imageSharp(resolutions: {originalName: {eq: "Fragmentary_Complex_mini.jpg"}}) {
-      resize(width: 600, height: 600) {
+    imageSharp(resize: {originalName: {eq: "Fragmentary_Complex_mini.jpg"}}) {
+      resize {
         src
       }
     }

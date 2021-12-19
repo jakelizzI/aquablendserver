@@ -3,6 +3,8 @@ import { List, Segment, Embed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import BackGroundImage from 'gatsby-background-image';
+import { getImage } from "gatsby-plugin-image"
+import { convertToBgImage } from "gbimage-bridge"
 
 import TokusetsuLayout from '../../layouts/tokusetsuLayout';
 
@@ -152,17 +154,25 @@ const embed = (
 );
 
 const ENET = ({ data }) => {
-  const jacketImg = data.imageSharp.edges.filter(edge => edge.node.resize.src.includes('ENET_jacket_mini'));
-  const bgImg = data.imageSharp.edges.filter(edge => edge.node.resize.src.includes('ENET_background3'));
+  const jacketImg = data.allImageSharp.nodes.find(node => node.resize.src.includes('ENET_jacket_mini'));
+  const bgImg = data.allImageSharp.nodes.find(node => node.resize.src.includes('ENET_background3'));
+
+  const temp = getImage(bgImg.gatsbyImageData);
+  const bgImageComponent = convertToBgImage(temp);
+
+  console.log(JSON.stringify(temp));
+  console.log("=====");
+  console.log(JSON.stringify(bgImageComponent));
 
   return (
     <BackGroundImage
       Tag="section"
-      fluid={bgImg[0].node.fluid}
+      {...bgImageComponent}
       className="enet-background"
+      alt={bgImg.resize.src}
     >
       <TokusetsuLayout
-        jacketImg={jacketImg[0].node.resize.src}
+        jacketImg={jacketImg.resize.src}
         details={details}
         meta={meta}
         embed={embed}
@@ -193,7 +203,7 @@ const ENET = ({ data }) => {
             <List.Item>
               書店委託
               <a href="https://www.melonbooks.co.jp/detail/detail.php?product_id=320333" target="_blank" rel="noopener noreferrer">
-              　　メロンブックス様
+                メロンブックス様
               </a>
             </List.Item>
           </List>
@@ -209,16 +219,14 @@ ENET.propTypes = {
 
 export const query = graphql`
   query {
-    imageSharp: allImageSharp(filter: {resolutions: {originalName: {in: ["ENET_jacket_mini.jpg","ENET_background3.jpg"]}}}) {
-      edges {
-        node {
-          resize(width: 600, height: 600) {
-            src
-          }
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+    allImageSharp(
+      filter: {resize: {originalName: {in: ["ENET_jacket_mini.jpg", "ENET_background3.jpg"]}}}
+    ) {
+      nodes {
+        resize {
+          src
         }
+        gatsbyImageData
       }
     }
   }

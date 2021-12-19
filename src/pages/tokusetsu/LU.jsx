@@ -100,7 +100,7 @@ const details = [
 
 const LU = ({ data }) => (
   <TokusetsuLayout
-    jacketImg={data.imageSharp.resize.src}
+    jacketImg={data.imageSharp.fixed.src}
     details={details}
     meta={meta}
     secondary
@@ -131,8 +131,8 @@ LU.propTypes = {
 
 export const query = graphql`
   query {
-    imageSharp: imageSharp(resolutions: {originalName: {eq: "lu_jacket_mini.jpg"}}) {
-      resize(width: 600, height: 600) {
+    imageSharp(resize: {originalName: {eq: "lu_jacket_mini.jpg"}}) {
+      resize {
         src
       }
     }

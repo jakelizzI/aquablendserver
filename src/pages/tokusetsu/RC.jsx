@@ -3,6 +3,8 @@ import { List, Segment, Embed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import BackGroundImage from 'gatsby-background-image';
+import { getImage } from "gatsby-plugin-image";
+import { convertToBgImage } from "gbimage-bridge";
 
 import TokusetsuLayout from '../../layouts/tokusetsuLayout';
 
@@ -110,17 +112,20 @@ const details = [
 ];
 
 const ENET = ({ data }) => {
-  const jacketImg = data.imageSharp.edges.filter(edge => edge.node.resize.src.includes('Relaxin_Complex'));
-  const bgImg = data.imageSharp.edges.filter(edge => edge.node.resize.src.includes('rc_BackGround'));
+  const jacketImg = data.allImageSharp.nodes.find(node => node.resize.src.includes('Relaxin_Complex'));
+  const bgImg = data.allImageSharp.nodes.find(node => node.resize.src.includes('rc_BackGround'));
+
+  const bgImageComponent = convertToBgImage(getImage(bgImg.gatsbyImageData));
 
   return (
     <BackGroundImage
       Tag="section"
-      fluid={bgImg[0].node.fluid}
+      {...bgImageComponent}
       className="rc-background"
+      alt={bgImg.resize.src}
     >
       <TokusetsuLayout
-        jacketImg={jacketImg[0].node.resize.src}
+        jacketImg={jacketImg.resize.src}
         details={details}
         meta={meta}
       >
@@ -146,16 +151,14 @@ ENET.propTypes = {
 
 export const query = graphql`
   query {
-    imageSharp: allImageSharp(filter: {resolutions: {originalName: {in: ["Relaxin_Complex.jpg","rc_BackGround.jpg"]}}}) {
-      edges {
-        node {
-          resize(width: 600, height: 600) {
-            src
-          }
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+    allImageSharp(
+      filter: {resize: {originalName: {in: ["Relaxin_Complex.jpg", "rc_BackGround.jpg"]}}}
+    ) {
+      nodes {
+        resize {
+          src
         }
+        gatsbyImageData
       }
     }
   }

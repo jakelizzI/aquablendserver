@@ -36,38 +36,43 @@ const Index = ({ data }) => (
 );
 
 Index.propTypes = {
-  data: PropTypes.isRequired,
+  data: PropTypes.shape({
+    edges: PropTypes.array,
+    placeholderImage: PropTypes.object,
+  }).isRequired,
 };
 
-export const query = graphql`
-  query {
-    allMarkdownRemark(filter: {frontmatter: {category: {eq: "news"}}}, sort: {fields: frontmatter___date, order: DESC}, limit: 1) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date
-            type
-          }
-          html
+export const query = graphql`{
+  allMarkdownRemark(
+    filter: {frontmatter: {category: {eq: "news"}}}
+    sort: {fields: frontmatter___date, order: DESC}
+    limit: 1
+  ) {
+    edges {
+      node {
+        frontmatter {
+          title
+          date
+          type
         }
-      }
-    }
-    placeholderImage: allFile(filter : {relativeDirectory : {eq : "slider"}}, sort: {fields: name, order: DESC}) {
-      edges {
-        node {
-          relativeDirectory
-          id
-          name
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+        html
       }
     }
   }
+  placeholderImage: allFile(
+    filter: {relativeDirectory: {eq: "slider"}}
+    sort: {fields: name, order: DESC}
+  ) {
+    nodes {
+      id
+      relativeDirectory
+      name
+      childrenImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+  }
+}
 `;
 
 export default Index;

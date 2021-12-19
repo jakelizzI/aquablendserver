@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, Grid, Header, Divider, List, Segment, Label, Image } from 'semantic-ui-react';
+import { graphql } from 'gatsby';
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
+import { Container, Grid, Header, Divider, List, Segment, Label } from 'semantic-ui-react';
 
 import Layout from '../layouts/baseLayout';
 
@@ -13,29 +15,31 @@ const Discography = ({ data }) => (
       <Grid columns={1}>
         <Grid.Row centered>
           <Grid.Column computer={13} tablet={16} mobile={16}>
-            {data.allMarkdownRemark.edges.map((edge, index) => (
+            {data.allMarkdownRemark.nodes.map((node, index) => (
               <Segment raised key={index}>
                 {index == 0 ? <Label color='red' ribbon='right'>NEW!</Label> : ''}
-                <Label color='black' attached='top left'>{edge.node.frontmatter.date} release</Label>
+                <Label color='black' attached='top left'>{node.frontmatter.date} release</Label>
                 <Grid columns={2} >
                   <Grid.Row>
                     <Grid.Column computer={6} tablet={16} mobile={16} textAlign='center'>
-                      {edge.node.frontmatter.shortName !== 'DEMO' ? (
-                        <Image
+                      {console.log(JSON.stringify(node.frontmatter.image.childImageSharp))}
+                      {node.frontmatter.shortName !== 'DEMO' ? (
+                        <GatsbyImage
                           as='a'
-                          src={edge.node.frontmatter.image.childImageSharp.fixed.src}
-                          href={`/tokusetsu/${edge.node.frontmatter.shortName}`}
+                          image={getImage(node.frontmatter.image.childImageSharp)}
+                          href={`/tokusetsu/${node.frontmatter.shortName}`}
                           target='_brank'
+                          alt={node.frontmatter.shortName}
                         />
-                      ) : <Image src={edge.node.frontmatter.image.childImageSharp.fixed.src} />
+                      ) : <GatsbyImage image={getImage(node.frontmatter.image.childImageSharp)} alt={node.frontmatter.shortName} />
                       }
                     </Grid.Column>
                     <Grid.Column computer={10} tablet={16} mobile={16}>
-                      <Header as='h2' textAlign='center'>{edge.node.frontmatter.title}</Header>
+                      <Header as='h2' textAlign='center'>{node.frontmatter.title}</Header>
                       <Divider />
                       <Container text textAlign='left' >
                         <List ordered size={windowGlobal.innerWidth < mobileWindowSize ? 'mini' : 'small'} >
-                          {edge.node.frontmatter.tracks.map((track, index2) => (
+                          {node.frontmatter.tracks.map((track, index2) => (
                             <List.Item key={index2} >
                               <List.Content>{track?.name}</List.Content>
                               <List.Description>原曲：{track?.original}</List.Description>
@@ -55,33 +59,31 @@ const Discography = ({ data }) => (
   </Layout>
 );
 
-export const query = graphql`
-  query {
-    allMarkdownRemark (filter: {frontmatter: {category: {eq: "discography"}}}, sort: {fields: frontmatter___date, order: DESC}) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date
-            type
-            shortName
-            image {
-              childImageSharp {
-                fixed(width: 360) {
-                  src
-                }
-              }
-            }
-            tracks {
-              name
-              original
-            }
+export const query = graphql`{
+  allMarkdownRemark(
+    filter: {frontmatter: {category: {eq: "discography"}}}
+    sort: {fields: frontmatter___date, order: DESC}
+  ) {
+    nodes {
+      frontmatter {
+        date
+        category
+        title
+        shortName
+        image {
+          childImageSharp {
+            gatsbyImageData(width: 360)
           }
-          html
+        }
+        tracks {
+          name
+          original
         }
       }
+      html
     }
   }
+}
 `;
 
 export default Discography;
