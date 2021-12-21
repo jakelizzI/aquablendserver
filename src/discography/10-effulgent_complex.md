@@ -1,5 +1,5 @@
 ---
-title: "effulgent_complex"
+title: "Effulgent Complex"
 date: "2021/12/31"
 type: "discography"
 category: "discography"
