@@ -22,7 +22,6 @@ const Discography = ({ data }) => (
                 <Grid columns={2} >
                   <Grid.Row>
                     <Grid.Column computer={6} tablet={16} mobile={16} textAlign='center'>
-                      {console.log(JSON.stringify(node.frontmatter.image.childImageSharp))}
                       {node.frontmatter.shortName !== 'DEMO' ? (
                         <GatsbyImage
                           as='a'
