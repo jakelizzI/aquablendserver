@@ -4,7 +4,6 @@ import {
   Container, Grid, Image, List, Segment, Header,
 } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { GatsbyImage } from "gatsby-plugin-image";
 
 import Footer from '../components/footer';
 

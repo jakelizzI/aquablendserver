@@ -2,9 +2,7 @@ import React from 'react';
 import { List, Segment, Embed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import BackGroundImage from 'gatsby-background-image';
-import { getImage } from "gatsby-plugin-image"
-import { convertToBgImage } from "gbimage-bridge"
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import TokusetsuLayout from '../../layouts/tokusetsuLayout';
 
@@ -157,59 +155,67 @@ const ENET = ({ data }) => {
   const jacketImg = data.allImageSharp.nodes.find(node => node.resize.src.includes('ENET_jacket_mini'));
   const bgImg = data.allImageSharp.nodes.find(node => node.resize.src.includes('ENET_background3'));
 
-  const temp = getImage(bgImg.gatsbyImageData);
-  const bgImageComponent = convertToBgImage(temp);
-
-  console.log(JSON.stringify(temp));
-  console.log("=====");
-  console.log(JSON.stringify(bgImageComponent));
-
   return (
-    <BackGroundImage
-      Tag="section"
-      {...bgImageComponent}
-      className="enet-background"
-      alt={bgImg.resize.src}
-    >
-      <TokusetsuLayout
-        jacketImg={jacketImg.resize.src}
-        details={details}
-        meta={meta}
-        embed={embed}
-        inverted
+    <div style={{ display: "grid" }}>
+      <GatsbyImage
+        image={getImage(bgImg.gatsbyImageData)}
+        className="enet-background"
+        alt={bgImg.resize.src}
+        style={{
+          gridArea: "1/1",
+        }}
+        layout="fullWidth"
+      />
+      <div
+        style={{
+          // By using the same grid area for both, they are stacked on top of each other
+          gridArea: "1/1",
+          position: "relative",
+          // This centers the other elements inside the hero component
+          placeItems: "center",
+          display: "grid",
+        }}
       >
-        <Segment vertical size="large">
-          <p>
-            Each Night Each Tale
-          </p>
-          <p>
-            みんな、それぞれの夜を持っている。――
-          </p>
-          <p>
-            Aqua Blend Server による 東方アレンジアルバム第5弾!
-          </p>
-          <p>
-            インストJazzからボーカルPopsまで幅広い範囲を網羅！
-          </p>
-          <p>
-            ジャズアレンジは生演奏・一発録りです！！
-          </p>
-          <List>
-            <List.Header>頒布情報</List.Header>
-            <List.Item>頒布日　　　2017.12.29(コミックマーケット93)</List.Item>
-            <List.Item>頒布場所　　う-02b [Aqua Blend Server]</List.Item>
-            <List.Item>頒布価格　　1000円</List.Item>
-            <List.Item>　</List.Item>
-            <List.Item>
-              書店委託
-              <a href="https://www.melonbooks.co.jp/detail/detail.php?product_id=320333" target="_blank" rel="noopener noreferrer">
-                メロンブックス様
-              </a>
-            </List.Item>
-          </List>
-        </Segment>
-      </TokusetsuLayout>
-    </BackGroundImage>
+        <TokusetsuLayout
+          jacketImg={jacketImg.resize.src}
+          details={details}
+          meta={meta}
+          embed={embed}
+          inverted
+        >
+          <Segment vertical size="large">
+            <p>
+              Each Night Each Tale
+            </p>
+            <p>
+              みんな、それぞれの夜を持っている。――
+            </p>
+            <p>
+              Aqua Blend Server による 東方アレンジアルバム第5弾!
+            </p>
+            <p>
+              インストJazzからボーカルPopsまで幅広い範囲を網羅！
+            </p>
+            <p>
+              ジャズアレンジは生演奏・一発録りです！！
+            </p>
+            <List>
+              <List.Header>頒布情報</List.Header>
+              <List.Item>頒布日　　　2017.12.29(コミックマーケット93)</List.Item>
+              <List.Item>頒布場所　　う-02b [Aqua Blend Server]</List.Item>
+              <List.Item>頒布価格　　1000円</List.Item>
+              <List.Item>　</List.Item>
+              <List.Item>
+                書店委託
+                <a href="https://www.melonbooks.co.jp/detail/detail.php?product_id=320333" target="_blank" rel="noopener noreferrer">
+                  メロンブックス様
+                </a>
+              </List.Item>
+            </List>
+          </Segment>
+        </TokusetsuLayout>
+      </div>
+    </div>
   );
 };
 

@@ -2,9 +2,7 @@ import React from 'react';
 import { List, Segment, Embed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import BackGroundImage from 'gatsby-background-image';
-import { getImage } from "gatsby-plugin-image";
-import { convertToBgImage } from "gbimage-bridge";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import TokusetsuLayout from '../../layouts/tokusetsuLayout';
 
@@ -115,33 +113,46 @@ const ENET = ({ data }) => {
   const jacketImg = data.allImageSharp.nodes.find(node => node.resize.src.includes('Relaxin_Complex'));
   const bgImg = data.allImageSharp.nodes.find(node => node.resize.src.includes('rc_BackGround'));
 
-  const bgImageComponent = convertToBgImage(getImage(bgImg.gatsbyImageData));
-
   return (
-    <BackGroundImage
-      Tag="section"
-      {...bgImageComponent}
-      className="rc-background"
-      alt={bgImg.resize.src}
-    >
-      <TokusetsuLayout
-        jacketImg={jacketImg.resize.src}
-        details={details}
-        meta={meta}
+    <div style={{ display: "grid" }}>
+      <GatsbyImage
+        image={getImage(bgImg.gatsbyImageData)}
+        className="rc-background"
+        alt={bgImg.resize.src}
+        style={{
+          gridArea: "1/1",
+        }}
+        layout="fullWidth"
+      />
+      <div
+        style={{
+          // By using the same grid area for both, they are stacked on top of each other
+          gridArea: "1/1",
+          position: "relative",
+          // This centers the other elements inside the hero component
+          placeItems: "center",
+          display: "grid",
+        }}
       >
-        <Segment vertical size="large">
-          <p>
-            Relaxin&#39; Complex
-          </p>
-          <List>
-            <List.Header>頒布情報</List.Header>
-            <List.Item>頒布日　　　2015.12.30(コミックマーケット89)</List.Item>
-            <List.Item>頒布場所　　西う-43b [Aqua Blend Server]</List.Item>
-            <List.Item>頒布価格　　500円</List.Item>
-          </List>
-        </Segment>
-      </TokusetsuLayout>
-    </BackGroundImage>
+        <TokusetsuLayout
+          jacketImg={jacketImg.resize.src}
+          details={details}
+          meta={meta}
+        >
+          <Segment vertical size="large">
+            <p>
+              Relaxin&#39; Complex
+            </p>
+            <List>
+              <List.Header>頒布情報</List.Header>
+              <List.Item>頒布日　　　2015.12.30(コミックマーケット89)</List.Item>
+              <List.Item>頒布場所　　西う-43b [Aqua Blend Server]</List.Item>
+              <List.Item>頒布価格　　500円</List.Item>
+            </List>
+          </Segment>
+        </TokusetsuLayout>
+      </div>
+    </div>
   );
 };
 
