@@ -76,7 +76,7 @@ const details = [
       {
         key: '3',
         head: 'jakelizzi',
-        body: '(Drums[3-4,6])',
+        body: '(Drums[1-6])',
       },
     ],
   },
