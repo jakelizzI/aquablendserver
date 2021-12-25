@@ -7,7 +7,7 @@ image: "../images/etc/08_EC/EC_jacket_mini.jpg"
 shortName: "EC"
 tracks: [
   {
-    name: "Being Appl",
+    name: "Being Apple",
     original: "Bad Apple!!"
   },
   {
