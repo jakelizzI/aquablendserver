@@ -136,7 +136,7 @@ const EC = ({ data }) => (
   >
     <Segment vertical size="large">
       <p>
-        Effulgent Compex
+        Effulgent Complex
       </p>
       <p>
         凪たる朝に光あれ
