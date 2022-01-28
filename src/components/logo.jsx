@@ -6,13 +6,16 @@ import { Header } from 'semantic-ui-react';
 export default () => (
   <StaticQuery
     query={graphql`{
-        imageSharp(fixed: {originalName: {eq: "logo-sample-2.png"}}) {
-          gatsbyImageData(layout: FIXED, width: 246, height: 111)
+        allImageSharp(filter: {original: {src: {regex: "/.*logo-sample-2/"}}}) {
+          nodes {
+            gatsbyImageData(height: 111, width: 246)
+          }
         }
       }
     `}
     render={data => {
-      const image = getImage(data.imageSharp);
+      console.log(`data=${JSON.stringify(data)}`)
+      const image = getImage(data.allImageSharp.nodes[0].gatsbyImageData);
       return (
         <Header as="h1">
           <Link to="/">

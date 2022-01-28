@@ -29,8 +29,15 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
+              linkImagesToOriginal: false,
             },
           },
+          {
+            resolve: `gatsby-remark-images-medium-zoom`,
+            options: {
+              background_color: `#292d3d`
+            },
+          }
         ],
       },
     },
@@ -47,12 +54,6 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/logos/favicon/favicon.png`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-s3`,
-      options: {
-        bucketName: 'aquablendserver'
       },
     },
     {
