@@ -23,13 +23,13 @@ const Discography = ({ data }) => (
                   <Grid.Row>
                     <Grid.Column computer={6} tablet={16} mobile={16} textAlign='center'>
                       {node.frontmatter.shortName !== 'DEMO' ? (
-                        <GatsbyImage
-                          as='a'
-                          image={getImage(node.frontmatter.image.childImageSharp)}
-                          href={`/tokusetsu/${node.frontmatter.shortName}`}
-                          target='_brank'
-                          alt={node.frontmatter.shortName}
-                        />
+                        <a href={`/tokusetsu/${node.frontmatter.shortName}`} target='_brank'>
+                          <GatsbyImage
+                            as='a'
+                            image={getImage(node.frontmatter.image.childImageSharp)}
+                            alt={node.frontmatter.shortName}
+                          />
+                        </a>
                       ) : <GatsbyImage image={getImage(node.frontmatter.image.childImageSharp)} alt={node.frontmatter.shortName} />
                       }
                     </Grid.Column>
