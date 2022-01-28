@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 import Layout from '../layouts/baseLayout';
 
+const nowAsUnixTimeMillis = new Date().getTime();
+
 const News = ({ data }) => (
   <Layout>
     <Divider />
@@ -16,24 +18,26 @@ const News = ({ data }) => (
       </Grid.Row>
     </Grid>
     <Grid divided centered>
-      {data.allMarkdownRemark.edges.map((edge, index) => (
-        <Grid.Row key={index.toString()}>
-          <Grid.Column computer={3} only="computer" textAlign="right">
-            {edge.node.frontmatter.date}
-            <br />
-            {edge.node.frontmatter.type}
-          </Grid.Column>
-          <Grid.Column only="tablet mobile" tablet={16} mobile={16}>
-            <Divider horizontal>
+      {data.allMarkdownRemark.edges
+        .filter(edge => edge.node.frontmatter.open <= nowAsUnixTimeMillis)
+        .map((edge, index) => (
+          <Grid.Row key={index.toString()}>
+            <Grid.Column computer={3} only="computer" textAlign="right">
               {edge.node.frontmatter.date}
+              <br />
               {edge.node.frontmatter.type}
-            </Divider>
-          </Grid.Column>
-          <Grid.Column computer={7} tablet={16} mobile={16}>
-            <div dangerouslySetInnerHTML={{ __html: edge.node.html }} />
-          </Grid.Column>
-        </Grid.Row>
-      ))}
+            </Grid.Column>
+            <Grid.Column only="tablet mobile" tablet={16} mobile={16}>
+              <Divider horizontal>
+                {edge.node.frontmatter.date}
+                {edge.node.frontmatter.type}
+              </Divider>
+            </Grid.Column>
+            <Grid.Column computer={7} tablet={16} mobile={16}>
+              <div dangerouslySetInnerHTML={{ __html: edge.node.html }} />
+            </Grid.Column>
+          </Grid.Row>
+        ))}
     </Grid>
   </Layout>
 );
@@ -49,6 +53,7 @@ export const query = graphql`
         node {
           frontmatter {
             title
+            open
             date
             type
           }
