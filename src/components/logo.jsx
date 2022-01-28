@@ -14,7 +14,6 @@ export default () => (
       }
     `}
     render={data => {
-      console.log(`data=${JSON.stringify(data)}`)
       const image = getImage(data.allImageSharp.nodes[0].gatsbyImageData);
       return (
         <Header as="h1">
