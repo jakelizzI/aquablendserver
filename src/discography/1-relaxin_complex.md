@@ -5,6 +5,7 @@ type: "discography"
 category: "discography"
 image: "../images/etc/01_RC/Relaxin_Complex.jpg"
 shortName: "RC"
+link: "/tokusetsu/RC"
 tracks: [
   {
     name: "eine Fantasie für Sie", 

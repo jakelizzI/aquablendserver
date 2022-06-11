@@ -5,6 +5,7 @@ type: "discography"
 category: "discography"
 image: "../images/etc/05_CC/cc_jacket_mini.jpg"
 shortName: "CC"
+link: "/tokusetsu/CC"
 tracks: [
   {
     name: "You Lose An Alarm Clock.", 

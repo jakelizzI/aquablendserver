@@ -5,6 +5,7 @@ type: "discography"
 category: "discography"
 image: "../images/etc/02_FC/Fragmentary_Complex_mini.jpg"
 shortName: "FC"
+link: "/tokusetsu/FC"
 tracks: [
   {
     name: "Liebe macht blind.", 

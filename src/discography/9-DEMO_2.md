@@ -5,6 +5,7 @@ type: "discography"
 category: "discography"
 image: "../images/etc/DEMO_2/DEMO2_mini.jpg"
 shortName: "DEMO"
+link: ""
 tracks: [
   {
     name: "The Ruins of A Certain Kingdom",

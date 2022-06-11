@@ -5,6 +5,7 @@ type: "discography"
 category: "discography"
 image: "../images/etc/04_MIY/miy_jacket_mini.jpg"
 shortName: "MIY"
+link: "/tokusetsu/MIY"
 tracks: [
   {
     name: "My Tiny Moon", 

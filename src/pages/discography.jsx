@@ -22,15 +22,15 @@ const Discography = ({ data }) => (
                 <Grid columns={2} >
                   <Grid.Row>
                     <Grid.Column computer={6} tablet={16} mobile={16} textAlign='center'>
-                      {node.frontmatter.shortName !== 'DEMO' ? (
-                        <a href={`/tokusetsu/${node.frontmatter.shortName}`} target='_brank'>
+                      {node.frontmatter.link === "" ? <GatsbyImage image={getImage(node.frontmatter.image.childImageSharp)} alt={node.frontmatter.shortName} /> : (
+                        <a href={node.frontmatter.link} target='_brank'>
                           <GatsbyImage
                             as='a'
                             image={getImage(node.frontmatter.image.childImageSharp)}
                             alt={node.frontmatter.shortName}
                           />
                         </a>
-                      ) : <GatsbyImage image={getImage(node.frontmatter.image.childImageSharp)} alt={node.frontmatter.shortName} />
+                      )
                       }
                     </Grid.Column>
                     <Grid.Column computer={10} tablet={16} mobile={16}>
@@ -69,6 +69,7 @@ export const query = graphql`{
         category
         title
         shortName
+        link
         image {
           childImageSharp {
             gatsbyImageData(width: 360)

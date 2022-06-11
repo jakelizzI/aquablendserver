@@ -5,6 +5,7 @@ type: "discography"
 category: "discography"
 image: "../images/etc/DEMO_1/DEMO1_mini.jpg"
 shortName: "DEMO"
+hasLink: ""
 tracks: [
   {
     name: "Third Time's The Charm",

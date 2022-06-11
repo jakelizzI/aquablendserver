@@ -5,6 +5,7 @@ type: "discography"
 category: "discography"
 image: "../images/etc/06_ENET/ENET_jacket_mini.jpg"
 shortName: "ENET"
+link: "/tokusetsu/ENET"
 tracks: [
   {
     name: "Inner Emotion", 

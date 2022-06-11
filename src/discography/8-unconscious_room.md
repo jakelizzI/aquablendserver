@@ -5,6 +5,7 @@ type: "discography"
 category: "discography"
 image: "../images/etc/07_UR/Unconscious_Room_jacket_mini.jpg"
 shortName: "UR"
+link: "/tokusetsu/UR"
 tracks: [
   {
     name: "Third Time's The Charm",

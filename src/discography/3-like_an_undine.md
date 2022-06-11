@@ -5,6 +5,7 @@ type: "discography"
 category: "discography"
 image: "../images/etc/03_LU/lu_jacket_mini.jpg"
 shortName: "LU"
+link: "/tokusetsu/LU"
 tracks: [
   {
     name: "有識と無意識のフェリチタ", 

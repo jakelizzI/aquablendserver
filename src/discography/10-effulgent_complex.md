@@ -5,6 +5,7 @@ type: "discography"
 category: "discography"
 image: "../images/etc/08_EC/EC_jacket_mini.jpg"
 shortName: "EC"
+link: "/tokusetsu/EC"
 tracks: [
   {
     name: "Being Apple",
